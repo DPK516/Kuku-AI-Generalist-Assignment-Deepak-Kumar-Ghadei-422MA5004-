@@ -1,0 +1,123 @@
+{
+  "id": "T02-deposit-hinglish-practice",
+  "why": "Hinglish, weaker evidence, then role-play with the landlord",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v5",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "Bhai mera landlord 2 mahine ka deposit 30000 wapas nahi de raha, bolta hai flat ganda chhoda. Kya karun?",
+      "reply": "Hello! Main Haq hoon, aapka legal first-aid assistant. Yeh tenant ya consumer disputes mein aapki madad kar sakta hoon (main lawyer nahi hoon). \n\nLandlord aapka ₹30,000 security deposit nahi de raha, yeh pareshani wali baat hai. Aam taur par agreement ke mutabiq, landlord ko vacating ke baad reasonable aur documented deductions ke baad deposit wapas dena hota hai. \n\nAage badhne ke liye bas mujhe yeh bataiye:\n1. Kya aapke paas koi written rent agreement hai aur kab aapne flat khali kiya?\n2. Kya aapke paas flat handover karte waqt ki photos ya videos hain, ya deposit payment ka koi proof?",
+      "language": "hinglish",
+      "topic": "deposit",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "lawyerLater": "",
+      "sources": [
+        "deposit-basics"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "Kya proof hai?",
+        "Written demand letter kaise bhejen?"
+      ]
+    },
+    {
+      "user": "Agreement tha but registered nahi tha, bas notary wala. Whatsapp pe usne likha tha ki deposit wapas milega.",
+      "reply": "Notary wala agreement bhi ek proof hota hai, aur WhatsApp chats toh bohot strong evidence hain jisme usne deposit wapas dene ki baat maani hai! \n\nAapke paas abhi yeh raste hain (cheapest se shuru karte hain):\n1. **Written Demand:** Landlord ko ek formal written message ya notice bhejiye jisme saaf likhiye ki 30,000 wapas karein, kyunki WhatsApp par unhone wapas dene ka waada kiya tha.\n2. **Legal Notice & Civil Claim:** Agar woh phir bhi na maane, toh aap 3 saal ke andar court mein recovery ka civil claim daal sakte hain. \n\nKya aap chahte hain ki main landlord ko bhejne ke liye ek draft demand message tayyar karoon?\n\n(Note: Agar baat aage court tak jati hai tabhi lawyer ki zarurat padegi, warna aap khud demand bhej sakte hain.)",
+      "language": "hinglish",
+      "topic": "deposit",
+      "stage": "options",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "lawyerLater": "",
+      "sources": [
+        "limitation-money",
+        "deposit-basics",
+        "deposit-routes"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "Draft demand message",
+        "Practice what to say to landlord",
+        "What about legal notice?"
+      ]
+    }
+  ],
+  "draft": null,
+  "practice": [
+    {
+      "user": "Sharma ji, maine flat saaf karke chhoda tha, photos bhi hain. Mera 30000 deposit kab tak wapas karoge?",
+      "inCharacter": "Arre bhai, photos hone se kya hota hai? Kitchen ki chimney dekhi hai aapne? Kitna grease jama tha! Paint ka kharcha aur deep cleaning me mera 15,000 kharch ho gaya hai. Baki paisa mai agle mahine de dunga, abhi thoda tang chal raha hu.",
+      "coachTip": "Respond calmly, mention a specific deadline in writing (e.g., 'Please transfer the remaining amount by Friday'), and state that you will rely on the written WhatsApp confirmation of the full deposit return if needed.",
+      "score": 7,
+      "model": "gemini-3.5-flash-lite"
+    }
+  ],
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "deposit",
+      "want": "deposit"
+    },
+    {
+      "id": "needs_lawyer",
+      "ok": true,
+      "got": false,
+      "want": false
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "hinglish,hinglish",
+      "want": "hinglish"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin,latin",
+      "want": "latin"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    }
+  ],
+  "caseFile": {
+    "summary": "Landlord is withholding a 2-month security deposit of ₹30,000, claiming the flat was left dirty.",
+    "person": "Tenant",
+    "other_side": "Landlord",
+    "amount": "₹30,000",
+    "key_dates": [],
+    "evidence_have": [
+      "Notary rent agreement",
+      "WhatsApp chat confirming deposit return promise"
+    ],
+    "evidence_missing": [
+      "Move-out date",
+      "Photos/videos of flat condition",
+      "Deposit payment proof"
+    ],
+    "goal": "Get the security deposit of ₹30,000 refunded",
+    "deadline_risks": []
+  }
+}

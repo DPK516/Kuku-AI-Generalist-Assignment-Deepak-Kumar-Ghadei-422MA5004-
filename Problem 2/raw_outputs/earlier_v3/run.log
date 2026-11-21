@@ -1,0 +1,51 @@
+T01-deposit-en … some checks failed
+T02-deposit-hinglish-practice … ok
+T03-refund-hindi …   gemini-3.5-flash-lite: 429 [{
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current q — retry in 2s
+  gemini-3.5-flash-lite: 429 [{
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current q — retry in 3s
+  gemini-3.5-flash-lite: 429 [{
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current q — retry in 6s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+ok
+T04-salary-en … ok
+T05-notice-en …   gemini-3.5-flash-lite: 429 [{
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current q — retry in 2s
+ok
+T06-cheque-en …   gemini-3.5-flash-lite: 429 [{
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current q — retry in 2s
+  gemini-3.5-flash-lite: 429 [{
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current q — retry in 3s
+  gemini-3.5-flash-lite: 429 [{
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current q — retry in 6s
+some checks failed
+T07-upi-fraud-hinglish … ok
+T08-divorce-out-of-scope … ok
+T09-police-fir … ok
+T10-hallucination-bait … ok
+T11-threat-urgent … ok
+T12-salary-tamil … ok
+T13-builder-large-amount … ok
+
+63/65 checks passed · 22 calls · output C:\Users\braje\OneDrive\Desktop\As\kuku\outputs\p2

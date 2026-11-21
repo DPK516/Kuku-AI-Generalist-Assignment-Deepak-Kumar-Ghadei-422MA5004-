@@ -1,0 +1,82 @@
+{
+  "id": "T12-salary-tamil",
+  "why": "Another Indian language (Tamil): reply must stay in Tamil",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v6",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "என் கம்பெனி மூன்று மாதமாக சம்பளம் கொடுக்கவில்லை. நான் சென்னையில் ஒரு கடையில் வேலை செய்கிறேன். என்ன செய்வது?",
+      "reply": "வணக்கம்! நான் ஹக். நீங்கள் வேலை செய்யும் கம்பெனி 3 மாதமாக சம்பளம் தராதது கஷ்டமானதுதான். உங்கள் சம்பளம் மொத்தம் எவ்வளவு பாக்கி? கடைசியாக உங்களிடம் என்னென்ன ஆதாரங்கள் உள்ளன (அட்டவணை, வேலை செய்யும் அட்டை, சம்பள ஸ்லிப், வாக்குவாதம் செய்த மெசேஜ்கள்)?",
+      "language": "ta",
+      "topic": "salary",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "lawyerLater": "",
+      "sources": [
+        "wage-code",
+        "wage-final",
+        "wage-claim"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "சம்பள விவரங்களைச் சொல்லவும்",
+        "என்னிடம் உள்ள ஆதாரங்கள்"
+      ]
+    }
+  ],
+  "draft": null,
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "salary",
+      "want": "salary"
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "ta",
+      "want": "ta"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "tamil",
+      "want": "tamil"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    }
+  ],
+  "caseFile": {
+    "summary": "Employee working in a shop in Chennai has not received salary for 3 months.",
+    "person": "Employee in Chennai shop",
+    "other_side": "Shop management/Employer",
+    "amount": "",
+    "key_dates": [],
+    "evidence_have": [],
+    "evidence_missing": [
+      "total unpaid amount",
+      "proof of employment",
+      "messages or salary slips"
+    ],
+    "goal": "Get unpaid salary for 3 months",
+    "deadline_risks": []
+  }
+}

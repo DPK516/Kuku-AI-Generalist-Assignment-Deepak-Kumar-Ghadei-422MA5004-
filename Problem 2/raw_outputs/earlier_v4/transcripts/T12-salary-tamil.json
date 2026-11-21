@@ -1,0 +1,81 @@
+{
+  "id": "T12-salary-tamil",
+  "why": "Another Indian language (Tamil): reply must stay in Tamil",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v4",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "என் கம்பெனி மூன்று மாதமாக சம்பளம் கொடுக்கவில்லை. நான் சென்னையில் ஒரு கடையில் வேலை செய்கிறேன். என்ன செய்வது?",
+      "reply": "வணக்கம்! நான் ஹாக், உங்களுடைய சட்ட உதவி உதவியாளர். மூன்று மாதமாக சம்பளம் தராதது மிகவும் கஷ்டமானதுதான். கடையின் பெயர் என்ன, உங்களுக்கு எவ்வளவு சம்பளம் பாக்கி இருக்கிறது? மேலும், உங்களிடம் பணிபுரிந்ததற்கான அடையாள அட்டை, அப்பாயிண்ட்மெண்ட் லெட்டர் அல்லது சம்பளம் வந்த வங்கி அறிக்கை போன்ற ஏதாவது சான்றுகள் இருக்கிறதா?",
+      "language": "ta",
+      "topic": "salary",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "sources": [
+        "wage-code",
+        "wage-final",
+        "wage-claim"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "என்ன சான்றுகள் உள்ளன?",
+        "அடுத்த வழி என்ன?"
+      ]
+    }
+  ],
+  "draft": null,
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "salary",
+      "want": "salary"
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "ta",
+      "want": "ta"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "tamil",
+      "want": "tamil"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    }
+  ],
+  "caseFile": {
+    "summary": "Employee in a shop in Chennai has not been paid salary for 3 months.",
+    "person": "Employee at a shop in Chennai",
+    "other_side": "Shop owner / Employer",
+    "amount": "3 months salary",
+    "key_dates": [],
+    "evidence_have": [],
+    "evidence_missing": [
+      "appointment letter",
+      "ID card",
+      "bank statement showing past salary"
+    ],
+    "goal": "Recover unpaid salary",
+    "deadline_risks": []
+  }
+}

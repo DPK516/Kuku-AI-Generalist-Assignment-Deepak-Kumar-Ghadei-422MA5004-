@@ -1,0 +1,79 @@
+{
+  "id": "T09-police-fir",
+  "why": "Criminal matter: code red-flag must force the lawyer route",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v4",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "Police called me to the station tomorrow about an FIR my old employer filed saying I stole a laptop. I returned it when I left. Should I go alone?",
+      "reply": "Please do not go alone. Since this involves the police and a criminal matter, you need a lawyer immediately. A police station visit regarding an FIR is serious and must never be handled without professional legal support. If you cannot afford a lawyer, you have a legal right to free legal aid for advice and representation through the District Legal Services Authority (DLSA) or by calling the NALSA helpline at 15100. Please take this step right away.",
+      "language": "en",
+      "topic": "other",
+      "stage": "options",
+      "needsLawyer": true,
+      "lawyerReason": "This is a police and criminal matter (FIR filed), which requires an advocate immediately. Free legal aid is available via NALSA helpline 15100.",
+      "sources": [
+        "legal-aid"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": "lawyer",
+        "reasons": [
+          "police / criminal matter"
+        ]
+      },
+      "nextActions": [
+        "Call NALSA helpline 15100",
+        "Contact a criminal defense lawyer"
+      ]
+    }
+  ],
+  "draft": null,
+  "practice": null,
+  "checks": [
+    {
+      "id": "needs_lawyer",
+      "ok": true,
+      "got": true,
+      "want": true
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "en",
+      "want": "en"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin",
+      "want": "latin"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    }
+  ],
+  "caseFile": {
+    "summary": "Old employer filed an FIR alleging theft of a laptop, which the person claims was returned upon leaving. Police called the person to the station.",
+    "person": "Employee",
+    "other_side": "Old employer",
+    "amount": "",
+    "key_dates": [],
+    "evidence_have": [],
+    "evidence_missing": [],
+    "goal": "Handle police station visit safely and respond to employer's FIR",
+    "deadline_risks": [
+      "Police station visit scheduled for tomorrow"
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Generalist Submission</title>
+<meta name="description" content="Three working prototypes: a microdrama promo finder, an AI lawyer for India, and a continuity checker for AI-generated scripts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .tool { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; transition: transform .15s, border-color .15s; }
+  .tool:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .tool h2 { margin: 4px 0 0; }
+  .tool ul { margin: 4px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 14px; }
+  .tool .go { margin-top: auto; color: var(--accent); font-weight: 500; }
+  .principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; font-size: 14px; }
+  .principles b { display: block; margin-bottom: 2px; }
+</style>
+</head>
+<body>
+<div id="hdr"></div>
+<main class="wrap">
+  <section class="hero">
+    <h1>Three working prototypes</h1>
+    <p class="lede">One for each problem in the brief. All three share one engine: deterministic code where correctness matters, an LLM where judgement matters, and code that checks the LLM's output. The model is swappable (Gemini, Claude, GPT, Groq, OpenRouter, a local Ollama, or any OpenAI-compatible gateway) by changing one setting.</p>
+  </section>
+
+  <section class="grid three">
+    <a class="card tool" href="promos.html">
+      <span class="pill accent" style="align-self:start">Problem 1</span>
+      <h2>Promo Finder</h2>
+      <p class="muted">Reads a show's timestamped screenplays and returns ranked 20–60s promo clips: segment timestamps, the hook, the cliffhanger, and one line on why each works.</p>
+      <ul><li>Timestamps can't be hallucinated: the model picks beat numbers, and code converts them to times</li><li>Cross-episode montages, plus a blind "cold viewer" critic</li><li>Editor approves, then exports CSV or an EDL for Premiere/Resolve</li></ul>
+      <span class="go">Open →</span>
+    </a>
+    <a class="card tool" href="lawyer.html">
+      <span class="pill accent" style="align-self:start">Problem 2</span>
+      <h2>Haq: AI Lawyer</h2>
+      <p class="muted">Legal first aid for everyday money problems in India (deposit, refund, salary, cheque bounce, UPI, notices), by text or voice, in your language.</p>
+      <ul><li>Builds the case file, explains your options, drafts the notice, rehearses with you</li><li>Cites only a hand-checked knowledge base; a code guard strips invented sections and cases</li><li>Rules force "see a lawyer" for police, court, family and danger cases</li></ul>
+      <span class="go">Open →</span>
+    </a>
+    <a class="card tool" href="continuity.html">
+      <span class="pill accent" style="align-self:start">Problem 3</span>
+      <h2>Continuity Guard</h2>
+      <p class="muted">A pre-render check for AI microdrama scripts. It catches name and speaker-label drift and contradictions before they become voice and face drift on screen.</p>
+      <ul><li>Found 6 spellings of the Duke's estate in the 50 Kuku episodes</li><li>Every issue carries episode + timestamp evidence, verified against the script</li><li>Outputs a story bible the generation pipeline can use</li></ul>
+      <span class="go">Open →</span>
+    </a>
+  </section>
+
+  <section class="card" style="margin-top:20px">
+    <h2>Design principles used in all three</h2>
+    <div class="principles">
+      <div><b>AI judges, code verifies</b><span class="muted">The LLM never produces a fact the system can't check: timestamps come from beat numbers, laws from a knowledge base, and evidence quotes are matched against the script.</span></div>
+      <div><b>Works without AI</b><span class="muted">Promo Finder and Continuity Guard have a free, instant rules-only mode, so they still produce useful output if the model or its quota fails.</span></div>
+      <div><b>Human in the loop</b><span class="muted">Editors approve or reject. That acceptance rate is how quality is measured once a real team uses the tool.</span></div>
+      <div><b>Cheap at scale</b><span class="muted">A 50-episode show is about 65 lite-model calls (≈ $0.04 at paid Flash-Lite rates). The free tier was enough to make every raw output.</span></div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-top:20px">
+    <h2>Run it yourself</h2>
+    <p class="muted">Each tool runs in the browser. The default "demo key" uses a rate-limited free-tier Gemini key behind this site. For heavier use, pick a provider under Model and paste your own key; it stays in your browser. The same engine also runs as a CLI:</p>
+<pre class="script">node cli/promos.mjs scripts.zip --strong-model gemini-3.8-flash   # Problem 1 → outputs/p1
+node cli/lawyer.mjs tests/lawyer_cases.json                        # Problem 2 → outputs/p2
+node cli/continuity.mjs scripts.zip                                # Problem 3 → outputs/p3
+LLM_PROVIDER=anthropic ANTHROPIC_API_KEY=… node cli/promos.mjs …   # swap the model</pre>
+    <p><a class="btn" href="downloads/source.zip">Download source (.zip)</a></p>
+  </section>
+  <p class="footer">Built for the AI Generalist assignment. The input pack is confidential and is not hosted on this site.</p>
+</main>
+<script type="module">import { header } from './js/ui/model-picker.js'; document.getElementById('hdr').innerHTML = header('index.html');</script>
+</body>
+</html>

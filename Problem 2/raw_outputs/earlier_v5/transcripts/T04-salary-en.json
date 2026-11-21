@@ -1,0 +1,153 @@
+{
+  "id": "T04-salary-en",
+  "why": "Unpaid final salary after resignation, wage-claim letter",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v5",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "I resigned from a startup in Bengaluru in April. My last two months' salary, about Rs 1.2 lakh, has not been paid. HR keeps saying there is a funds issue.",
+      "reply": "I am Haq, a legal first-aid assistant, not a lawyer. I can help you figure out how to get your unpaid salary step by step.\n\nUnder the law, when you resign, your full and final wages should be paid within two working days (please verify). To help me guide you better:\n\n1. Do you have a copy of your resignation email or letter, and an offer letter showing your salary amount?\n2. Did HR give you any written promise about when the Rs 1.2 lakh will be paid?",
+      "language": "en",
+      "topic": "salary",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "lawyerLater": "",
+      "sources": [
+        "wage-final"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "What proof do I need?",
+        "How to send a demand letter"
+      ]
+    },
+    {
+      "user": "I have my offer letter, payslips till February, and the email where they accepted my resignation with last working day 30 April.",
+      "reply": "That is very helpful. Having your offer letter, payslips, and resignation acceptance email gives you strong proof. \n\nSince they haven't paid your dues despite your resignation in April, here is the path you can take:\n\n1. **Written Demand:** Send a formal reminder email to HR and management demanding your ₹1.2 lakh within a clear deadline.\n2. **Labour Authority / SAMADHAN:** If they still don't pay, you can file a claim for unpaid wages with the state labour department or online within 3 years. \n\nTo move forward, shall I help you draft a firm written demand email to send to HR, or would you like to practice what to say to them?",
+      "language": "en",
+      "topic": "salary",
+      "stage": "options",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "lawyerLater": "",
+      "sources": [
+        "wage-final",
+        "wage-claim",
+        "samadhan"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "Draft a demand email",
+        "Practice talking to HR",
+        "What are the next steps?"
+      ]
+    }
+  ],
+  "draft": {
+    "kind": "wage_claim",
+    "title": "Claim for Unpaid Wages before the State Labour Authority",
+    "document": "To,\nThe Labour Commissioner / Authority,\n[NAME OF DISTRICT] Labour Department,\n[STATE LABOUR DEPARTMENT ADDRESS, BENGALURU, KARNATAKA].\n\nSubject: Claim for recovery of unpaid wages amounting to Rs 1.2 lakh under the Code on Wages, 2019.\n\nRespected Sir/Madam,\n\nI, [YOUR FULL NAME], residing at [YOUR FULL ADDRESS], was employed with [STARTUP COMPANY NAME], located at [COMPANY ADDRESS IN BENGALURU]. My employment with the company ended upon my resignation, and my last working day was 30 April 2026.\n\n1. That my monthly salary as per my offer letter was [MONTHLY SALARY AMOUNT]. However, my salary for the last two months amounting to Rs 1.2,000 has been withheld and remains unpaid by the employer despite my resignation and departure.\n2. That as per Section 17 of the Code on Wages, 2019, when an employee resigns, the wages due must be paid within two working days.\n3. That I have made multiple attempts to recover my dues from the HR department of the company, but they have failed to clear the payment, citing internal funds issues without any lawful justification.\n4. That in support of my claim, I possess and rely upon the following documents:\n   - Offer letter\n   - Payslips till February\n   - Resignation acceptance email with last working day dated 30 April 2026\n\nTherefore, I respectfully request this Authority to direct the employer, [STARTUP COMPANY NAME], to immediately pay my legally due unpaid wages amounting to Rs 1.2 lakh.\n\nYours faithfully,\n\n[YOUR SIGNATURE]\n[YOUR FULL NAME]\n[YOUR PHONE NUMBER]\n[YOUR EMAIL ADDRESS]\nDate: [CURRENT DATE]\nPlace: Bengaluru",
+    "placeholders": [
+      "[NAME OF DISTRICT]",
+      "[STATE LABOUR DEPARTMENT ADDRESS, BENGALURU, KARNATAKA]",
+      "[YOUR FULL NAME]",
+      "[YOUR FULL ADDRESS]",
+      "[STARTUP COMPANY NAME]",
+      "[COMPANY ADDRESS IN BENGALURU]",
+      "[MONTHLY SALARY AMOUNT]",
+      "[YOUR SIGNATURE]",
+      "[YOUR PHONE NUMBER]",
+      "[YOUR EMAIL ADDRESS]",
+      "[CURRENT DATE]"
+    ],
+    "howToSend": "1. Print two physical copies of this claim along with photocopies of your offer letter, payslips till February, and the resignation acceptance email. 2. Submit the claim physically at the jurisdictional state labour department office in Bengaluru or check the state labour portal for online submission. 3. Keep the receiving copy or acknowledgement slip safely as proof.",
+    "sources": [
+      "wage-code",
+      "wage-final",
+      "wage-claim",
+      "samadhan"
+    ],
+    "guardRemoved": []
+  },
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "salary",
+      "want": "salary"
+    },
+    {
+      "id": "needs_lawyer",
+      "ok": true,
+      "got": false,
+      "want": false
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "en,en",
+      "want": "en"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin,latin",
+      "want": "latin"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    },
+    {
+      "id": "draft_uses_placeholders_not_invented_facts",
+      "ok": true,
+      "got": 11
+    }
+  ],
+  "caseFile": {
+    "summary": "Resigned from Bengaluru startup in April; unpaid salary of Rs 1.2 lakh for last two months.",
+    "person": "Employee",
+    "other_side": "Startup in Bengaluru (HR)",
+    "amount": "Rs 1.2 lakh",
+    "key_dates": [
+      {
+        "date": "April 2026",
+        "event": "Resignation from startup"
+      },
+      {
+        "date": "30 April 2026",
+        "event": "Last working day"
+      }
+    ],
+    "evidence_have": [
+      "Offer letter",
+      "Payslips till February",
+      "Resignation acceptance email with last working day"
+    ],
+    "evidence_missing": [
+      "Written communication from HR about funds issue"
+    ],
+    "goal": "Recover unpaid salary of Rs 1.2 lakh",
+    "deadline_risks": []
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "id": "T07-upi-fraud-hinglish",
+  "why": "Time-critical fraud: must give 1930 / cybercrime portal first",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v5",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "Kal raat mere account se UPI se 18,000 rupaye kat gaye, maine koi payment nahi kiya. Bank wale bol rahe hain wait karo.",
+      "reply": "Ye sunkar bura laga. UPI fraud ke maamle mein time bahut zaroori hota hai, isiliye jaldi action lena hoga.\n\n1. Turant **1930** number par call karke cyber crime helpline par complaint darj karein.\n2. Online **cybercrime.gov.in** par bhi apna case file karein, kyunki jaldi report karne se paise freeze ho sakte hain.\n\nAapne bank ko written mein complaint di kya, aur kya aapko koi complaint reference number mila hai?",
+      "language": "hinglish",
+      "topic": "bank",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "lawyerLater": "",
+      "sources": [
+        "cyber-fraud"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "Call 1930 Cyber Helpline",
+        "Report on cybercrime.gov.in",
+        "Share bank response details"
+      ]
+    }
+  ],
+  "draft": null,
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "bank",
+      "want": "bank"
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "hinglish",
+      "want": "hinglish"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin",
+      "want": "latin"
+    },
+    {
+      "id": "mentions_1930",
+      "ok": true,
+      "want": "1930"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    }
+  ],
+  "caseFile": {
+    "summary": "₹18,000 unauthorized UPI deduction from account",
+    "person": "",
+    "other_side": "Bank / Unknown",
+    "amount": "₹18,000",
+    "key_dates": [
+      {
+        "date": "yesterday night",
+        "event": "Money deducted via UPI without authorization"
+      }
+    ],
+    "evidence_have": [],
+    "evidence_missing": [
+      "bank complaint reference number"
+    ],
+    "goal": "Recover unauthorized deducted money",
+    "deadline_risks": [
+      "Immediate reporting required to freeze funds"
+    ]
+  }
+}

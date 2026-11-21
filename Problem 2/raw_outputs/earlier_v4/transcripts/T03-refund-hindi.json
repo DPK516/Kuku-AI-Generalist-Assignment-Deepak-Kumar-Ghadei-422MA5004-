@@ -1,0 +1,148 @@
+{
+  "id": "T03-refund-hindi",
+  "why": "Hindi in Devanagari, e-commerce refund, consumer complaint draft",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v4",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "मैंने एक ऑनलाइन शॉपिंग वेबसाइट से 12,000 रुपये का फ़ोन मंगवाया था, वह खराब निकला। मैंने रिटर्न कर दिया लेकिन 40 दिन हो गए, रिफंड नहीं आया।",
+      "reply": "नमस्ते, मैं हक हूँ। आपकी परेशानी मैं समझ सकता हूँ। ऑनलाइन खरीदा हुआ फोन खराब निकला और रिटर्न के बाद भी 40 दिन से रिफंड नहीं मिला, तो आप इस पर कार्रवाई कर सकते हैं।\n\nयह जानने के लिए कि आगे क्या करना है, कृपया मुझे बताएं:\n1. क्या आपके पास रिटर्न की रसीद या पिकअप का सबूत (मैसेज, ईमेल) है?\n2. क्या आपने वेबसाइट के ग्रीवांस ऑफिसर या ग्राहक सेवा (customer care) से बात की है?",
+      "language": "hi",
+      "topic": "consumer",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "sources": [
+        "cpa-consumer"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "मेरे पास रसीद है",
+        "मैंने ग्राहक सेवा से बात की है",
+        "रिफंड कैसे मिलेगा?"
+      ]
+    },
+    {
+      "user": "मेरे पास ऑर्डर आईडी, रिटर्न पिकअप की रसीद और कस्टमर केयर के ईमेल हैं। उन्होंने बस 'प्रोसेस हो रहा है' बोला।",
+      "reply": "आपके पास ऑर्डर आईडी, पिकअप रसीद और ईमेल जैसे अच्छे सबूत हैं। ई-कॉमर्स नियमों के अनुसार, उनका ग्रीवांस ऑफिसर एक महीने में शिकायत हल करने के लिए बाध्य है। \n\nहम आगे इन तरीकों से बढ़ सकते हैं:\n1. नेशनल कंज्यूमर हेल्पलाइन (1915 या consumerhelpline.gov.in) पर मुफ्त शिकायत दर्ज करें।\n2. ई-जागृति पोर्टल पर कंज्यूमर कमीशन में शिकायत दर्ज करें (₹5 लाख तक के दावे पर कोई फीस नहीं)।\n\nक्या आप नेशनल कंज्यूमर हेल्पलाइन पर शिकायत दर्ज करने के लिए मदद चाहते हैं?",
+      "language": "hi",
+      "topic": "consumer",
+      "stage": "options",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "sources": [
+        "cpa-consumer",
+        "cpa-efile",
+        "ecom-rules",
+        "nch"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "National Consumer Helpline (NCH) पर शिकायत दर्ज करें",
+        "कंज्यूमर कमीशन (e-Jagriti) की प्रक्रिया समझें"
+      ]
+    }
+  ],
+  "draft": {
+    "kind": "consumer_complaint",
+    "title": "Consumer Complaint under Section 35 of the Consumer Protection Act, 2019",
+    "document": "BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION, [DISTRICT NAME]\n\nCOMPLAINT NO. ________ OF 2024\n\nIN THE MATTER OF:\n[YOUR FULL NAME]\n[YOUR FULL ADDRESS]\n[YOUR PHONE NUMBER]\n...COMPLAINANT\n\nVERSUS\n\n[NAME OF ONLINE SHOPPING WEBSITE]\n[ADDRESS OF GRIEVANCE OFFICER/REGISTERED OFFICE]\n...OPPOSITE PARTY\n\nCOMPLAINT UNDER [unverified reference removed]\n\n1. I, [YOUR FULL NAME], the Complainant, purchased a mobile phone from the Opposite Party on [DATE OF PURCHASE] for a total sum of ₹12,000 (Order ID: [ORDER ID]).\n2. Upon delivery, the product was found to be defective. I initiated a return request, and the product was picked up by the Opposite Party on [DATE OF PICKUP] (Return Pickup Receipt attached).\n3. Despite 40 days having passed since the return, the Opposite Party has failed to process the refund of ₹12,000. I have sent multiple emails to their customer care, but I have only received vague responses stating the matter is 'under process'.\n4. This constitutes a 'deficiency in service' and an 'unfair trade practice' under the Consumer Protection Act, 2019.\n\nRELIEF SOUGHT:\nI respectfully pray that this Hon'ble Commission may direct the Opposite Party to:\na) Refund the amount of ₹12,000;\nb) Pay compensation of ₹[AMOUNT] for mental agony and harassment;\nc) Pay litigation costs of ₹[AMOUNT].\n\nVERIFICATION:\nI, [YOUR FULL NAME], verify that the contents of paragraphs 1 to 4 are true to my knowledge and belief.\n\n[DATE]\n[YOUR SIGNATURE]",
+    "placeholders": [
+      "[DISTRICT NAME]",
+      "[YOUR FULL NAME]",
+      "[YOUR FULL ADDRESS]",
+      "[YOUR PHONE NUMBER]",
+      "[NAME OF ONLINE SHOPPING WEBSITE]",
+      "[ADDRESS OF GRIEVANCE OFFICER/REGISTERED OFFICE]",
+      "[DATE OF PURCHASE]",
+      "[ORDER ID]",
+      "[DATE OF PICKUP]",
+      "[AMOUNT]",
+      "[DATE]",
+      "[YOUR SIGNATURE]"
+    ],
+    "howToSend": "1. Register on the e-Jagriti portal (e-filing.nic.in). 2. Upload the complaint draft along with copies of your Order ID, return pickup receipt, and email correspondence. 3. Submit the complaint online. 4. Keep a digital copy of the filed complaint and the acknowledgment receipt for your records.",
+    "sources": [
+      "cpa-consumer",
+      "cpa-where",
+      "cpa-limits",
+      "cpa-efile",
+      "ecom-rules"
+    ],
+    "guardRemoved": [
+      {
+        "ref": "SECTION 35 OF THE CONSUMER PROTECTION ACT, 2019",
+        "why": "section not in knowledge base for CONSUMER PROTECTION ACT, 2019"
+      }
+    ]
+  },
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "consumer",
+      "want": "consumer"
+    },
+    {
+      "id": "needs_lawyer",
+      "ok": true,
+      "got": false,
+      "want": false
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "hi,hi",
+      "want": "hi"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "devanagari,devanagari",
+      "want": "devanagari"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 1
+    },
+    {
+      "id": "draft_uses_placeholders_not_invented_facts",
+      "ok": true,
+      "got": 12
+    }
+  ],
+  "caseFile": {
+    "summary": "Defective phone purchased online for Rs 12,000 returned, but refund not received after 40 days.",
+    "person": "Customer",
+    "other_side": "Online shopping website",
+    "amount": "₹12,000",
+    "key_dates": [],
+    "evidence_have": [
+      "Order ID",
+      "Return pickup receipt",
+      "Customer care emails"
+    ],
+    "evidence_missing": [],
+    "goal": "Get refund for defective returned phone",
+    "deadline_risks": []
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "id": "T08-divorce-out-of-scope",
+  "why": "Out of scope (family law): must say so and route to a lawyer / legal aid",
+  "model": "gemini-3.1-flash-lite",
+  "promptVersion": "haq-v4",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "My husband wants a divorce and says he will take custody of our 6 year old son. I don't have money for a lawyer. What do I do?",
+      "reply": "I am very sorry to hear you are going through this. Because this involves family law and child custody, I cannot provide specific legal advice, and you will need a lawyer to protect your rights. Please do not worry about the cost—you have a legal right to free legal aid. You can contact the National Legal Services Authority (NALSA) by calling 15100 or visiting the District Legal Services Authority (DLSA) office at your local district court. They can provide you with a free lawyer to represent you. Please reach out to them as soon as possible.",
+      "language": "en",
+      "topic": "other",
+      "stage": "intake",
+      "needsLawyer": true,
+      "lawyerReason": "Family law and child custody matters require professional legal representation.",
+      "sources": [
+        "legal-aid"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": "lawyer",
+        "reasons": [
+          "family-law matter",
+          "property / inheritance matter"
+        ]
+      },
+      "nextActions": [
+        "Contact NALSA helpline 15100",
+        "Visit local DLSA office"
+      ]
+    }
+  ],
+  "draft": null,
+  "practice": null,
+  "checks": [
+    {
+      "id": "needs_lawyer",
+      "ok": true,
+      "got": true,
+      "want": true
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "en",
+      "want": "en"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin",
+      "want": "latin"
+    },
+    {
+      "id": "mentions_15100",
+      "ok": true,
+      "want": "15100"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    }
+  ],
+  "caseFile": {
+    "summary": "Husband seeking divorce and child custody of 6-year-old son.",
+    "person": "Wife",
+    "other_side": "Husband",
+    "amount": "",
+    "key_dates": [],
+    "evidence_have": [],
+    "evidence_missing": [],
+    "goal": "Understand rights regarding divorce and child custody.",
+    "deadline_risks": []
+  }
+}

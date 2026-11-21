@@ -1,0 +1,1617 @@
+{
+  "meta": {
+    "tool": "continuity-guard",
+    "promptVersion": "continuity-v2",
+    "mode": "ai+rules",
+    "model": "gemini-3.5-flash-lite",
+    "episodes": 50,
+    "runtimeSec": 99.3,
+    "usage": {
+      "calls": 6,
+      "inputTokens": 94864,
+      "outputTokens": 13057,
+      "ms": 40136,
+      "byModel": {
+        "gemini-3.5-flash-lite": {
+          "calls": 5,
+          "inputTokens": 76601,
+          "outputTokens": 11592
+        },
+        "gemini-3.1-flash-lite": {
+          "calls": 1,
+          "inputTokens": 18263,
+          "outputTokens": 1465
+        }
+      }
+    },
+    "errors": [],
+    "generatedAt": "2026-11-20T18:04:44.456Z"
+  },
+  "issues": [
+    {
+      "source": "rules",
+      "type": "name_drift",
+      "severity": "high",
+      "title": "Name spelled 6 ways: Ashburg / Ashbury / Ashburton / Ashbourne / Ashburgh / Ashburn",
+      "detail": "These look like one proper name written differently across episodes. Voice generation will pronounce each spelling differently and subtitles will disagree. (Check: if they really are different people or places, mark it \"not an issue\".)",
+      "fix": "Choose one spelling (most used: \"Ashburton\") and replace the rest.",
+      "evidence": [
+        {
+          "ep": 22,
+          "beat": "E22.7",
+          "time": "00:14.20",
+          "quote": "This is Ashburton Manor. The housekeeper watches everyone",
+          "note": "\"Ashburton\" × 8 (Ep 22, 45, 46)",
+          "verified": true
+        },
+        {
+          "ep": 45,
+          "beat": "E45.20",
+          "time": "00:24.60",
+          "quote": "Alexander Ashburton. The rightful Duke of Ashburton.",
+          "note": "\"Ashburton\" × 8 (Ep 22, 45, 46)",
+          "verified": true
+        },
+        {
+          "ep": 27,
+          "beat": "E27.11",
+          "time": "00:17.20",
+          "quote": "That is no ordinary band. It bears the Ashbourne crest.",
+          "note": "\"Ashbourne\" × 8 (Ep 27, 36, 47)",
+          "verified": true
+        },
+        {
+          "ep": 27,
+          "beat": "E27.logline",
+          "time": "00:00.00",
+          "quote": "alizes Juliana's wedding ring bears the Ashbourne crest belonging to her lost son, but be",
+          "note": "\"Ashbourne\" × 8 (Ep 27, 36, 47)",
+          "verified": true
+        },
+        {
+          "ep": 42,
+          "beat": "E42.33",
+          "time": "01:04.20",
+          "quote": "ne hear me! This is my son... Alexander Ashburn. The rightful Duke of Ashburn!",
+          "note": "\"Ashburn\" × 6 (Ep 42, 43)",
+          "verified": true
+        },
+        {
+          "ep": 42,
+          "beat": "E42.logline",
+          "time": "00:00.00",
+          "quote": " and is proclaimed the rightful Duke of Ashburn by his weeping mother.",
+          "note": "\"Ashburn\" × 6 (Ep 42, 43)",
+          "verified": true
+        },
+        {
+          "ep": 20,
+          "beat": "E20.11",
+          "time": "00:18.80",
+          "quote": "I marry the Lord of Ashbury.",
+          "note": "\"Ashbury\" × 5 (Ep 20, 21, 22)",
+          "verified": true
+        },
+        {
+          "ep": 20,
+          "beat": "E20.63",
+          "time": "01:41.50",
+          "quote": "...Ashbury will finally belong to us.",
+          "note": "\"Ashbury\" × 5 (Ep 20, 21, 22)",
+          "verified": true
+        },
+        {
+          "ep": 19,
+          "beat": "E19.29",
+          "time": "00:47.10",
+          "quote": "Tell me what is happening in Ashburg.",
+          "note": "\"Ashburg\" × 4 (Ep 19, 25)",
+          "verified": true
+        },
+        {
+          "ep": 19,
+          "beat": "E19.31",
+          "time": "00:55.30",
+          "quote": "Rupert has become the face of Ashburg. He sits in your father's room, signs y",
+          "note": "\"Ashburg\" × 4 (Ep 19, 25)",
+          "verified": true
+        },
+        {
+          "ep": 40,
+          "beat": "E40.9",
+          "time": "00:19.20",
+          "quote": "n, we'll be connected to the Duchess of Ashburgh.",
+          "note": "\"Ashburgh\" × 4 (Ep 40, 41)",
+          "verified": true
+        },
+        {
+          "ep": 40,
+          "beat": "E40.35",
+          "time": "01:09.80",
+          "quote": "By sunset, Ashburgh will have its new Duke and Duchess.",
+          "note": "\"Ashburgh\" × 4 (Ep 40, 41)",
+          "verified": true
+        }
+      ],
+      "id": "C001"
+    },
+    {
+      "source": "rules",
+      "type": "name_drift",
+      "severity": "high",
+      "title": "Name spelled 2 ways: Ashworth / Ashwood",
+      "detail": "These look like one proper name written differently across episodes. Voice generation will pronounce each spelling differently and subtitles will disagree. (Check: if they really are different people or places, mark it \"not an issue\".)",
+      "fix": "Choose one spelling (most used: \"Ashworth\") and replace the rest.",
+      "evidence": [
+        {
+          "ep": 12,
+          "beat": "E12.33",
+          "time": "00:46.70",
+          "quote": "ep into the frozen blackthorn briars at Ashworth Manor. The thorns have grown over it...",
+          "note": "\"Ashworth\" × 1 (Ep 12)",
+          "verified": true
+        },
+        {
+          "ep": 35,
+          "beat": "E35.69",
+          "time": "02:25.50",
+          "quote": "en behind it... are the same men ruling Ashwood now.",
+          "note": "\"Ashwood\" × 1 (Ep 35)",
+          "verified": true
+        }
+      ],
+      "id": "C002"
+    },
+    {
+      "source": "rules",
+      "type": "name_drift",
+      "severity": "high",
+      "title": "Name spelled 2 ways: Clarissa / Clarisse",
+      "detail": "These look like one proper name written differently across episodes. Voice generation will pronounce each spelling differently and subtitles will disagree. (Check: if they really are different people or places, mark it \"not an issue\".)",
+      "fix": "Choose one spelling (most used: \"Clarissa\") and replace the rest.",
+      "evidence": [
+        {
+          "ep": 1,
+          "beat": "E1.68",
+          "time": "01:38.80",
+          "quote": "Clarissa knows how to carry herself.",
+          "note": "\"Clarissa\" × 21 (Ep 1, 2, 4, 11, 12, 13)",
+          "verified": true
+        },
+        {
+          "ep": 1,
+          "beat": "E1.78",
+          "time": "01:53.30",
+          "quote": "Clarissa is the jewel of this family.",
+          "note": "\"Clarissa\" × 21 (Ep 1, 2, 4, 11, 12, 13)",
+          "verified": true
+        },
+        {
+          "ep": 31,
+          "beat": "E31.28",
+          "time": "00:51.00",
+          "quote": "one saw you. Everyone watched him chose Clarisse.",
+          "note": "\"Clarisse\" × 1 (Ep 31)",
+          "verified": true
+        }
+      ],
+      "id": "C003"
+    },
+    {
+      "source": "rules",
+      "type": "speaker_label_drift",
+      "severity": "high",
+      "title": "One character, 2 speaker labels: CATHERINE / LADY CATHERINE",
+      "detail": "Dialogue for what looks like the same person (\"CATHERINE\") is labelled 2 different ways. In an AI pipeline the speaker label usually picks the voice and the face reference, so this is how a character's voice or face changes between episodes.",
+      "fix": "Pick one canonical label (e.g. \"CATHERINE\") and map the others to it in the story bible.",
+      "evidence": [
+        {
+          "ep": 20,
+          "beat": "E20.2",
+          "time": "00:02.90",
+          "quote": "CATHERINE: \"Two lumps of sugar, Rupert?\"",
+          "note": "187 lines in Ep 20, 28, 29, 30, 31, 32, 37, 40…",
+          "verified": true
+        },
+        {
+          "ep": 27,
+          "beat": "E27.30",
+          "time": "00:52.20",
+          "quote": "LADY CATHERINE: \"What is that maid doing in Her Grace's private chamber?\"",
+          "note": "9 lines in Ep 27",
+          "verified": true
+        }
+      ],
+      "id": "C004"
+    },
+    {
+      "source": "rules",
+      "type": "speaker_label_drift",
+      "severity": "high",
+      "title": "One character, 2 speaker labels: CLARISSA / LADY CLARISSA",
+      "detail": "Dialogue for what looks like the same person (\"CLARISSA\") is labelled 2 different ways. In an AI pipeline the speaker label usually picks the voice and the face reference, so this is how a character's voice or face changes between episodes.",
+      "fix": "Pick one canonical label (e.g. \"CLARISSA\") and map the others to it in the story bible.",
+      "evidence": [
+        {
+          "ep": 4,
+          "beat": "E4.9",
+          "time": "00:09.00",
+          "quote": "CLARISSA: \"How fitting.\"",
+          "note": "17 lines in Ep 4, 5, 12, 13",
+          "verified": true
+        },
+        {
+          "ep": 37,
+          "beat": "E37.25",
+          "time": "00:44.50",
+          "quote": "LADY CLARISSA: \"Catherine's wedding.\"",
+          "note": "11 lines in Ep 37",
+          "verified": true
+        }
+      ],
+      "id": "C005"
+    },
+    {
+      "source": "rules",
+      "type": "speaker_label_drift",
+      "severity": "high",
+      "title": "One character, 2 speaker labels: LADY JULIANA / JULIANA",
+      "detail": "Dialogue for what looks like the same person (\"JULIANA\") is labelled 2 different ways. In an AI pipeline the speaker label usually picks the voice and the face reference, so this is how a character's voice or face changes between episodes.",
+      "fix": "Pick one canonical label (e.g. \"JULIANA\") and map the others to it in the story bible.",
+      "evidence": [
+        {
+          "ep": 4,
+          "beat": "E4.16",
+          "time": "00:20.00",
+          "quote": "JULIANA: \"You don't even know me.\"",
+          "note": "352 lines in Ep 4, 5, 6, 7, 8, 9, 10, 11…",
+          "verified": true
+        },
+        {
+          "ep": 1,
+          "beat": "E1.8",
+          "time": "00:13.50",
+          "quote": "LADY JULIANA: \"Why?\"",
+          "note": "110 lines in Ep 1, 2, 3, 21, 22, 23, 24, 34",
+          "verified": true
+        }
+      ],
+      "id": "C006"
+    },
+    {
+      "source": "ai",
+      "type": "name_drift",
+      "severity": "medium",
+      "title": "Inconsistent spelling of character Clarissa",
+      "detail": "The character's name is spelled both 'Clarissa' and 'Clarisse' in the scripts.",
+      "evidence": [
+        {
+          "ep": 12,
+          "beat": "E12.33",
+          "quote": "My emerald signet ring fell deep into the frozen blackthorn briars at Ashworth Manor.",
+          "time": "00:46.70",
+          "verified": true,
+          "matchScore": 1
+        },
+        {
+          "ep": 31,
+          "beat": "E31.28",
+          "quote": "Everyone saw you. Everyone watched him chose Clarisse.",
+          "time": "00:51.00",
+          "verified": true,
+          "matchScore": 1
+        }
+      ],
+      "fix": "Choose one canonical spelling (Clarissa) and update all occurrences.",
+      "pipeline_impact": "subtitle",
+      "verifiedEvidence": 2,
+      "unverified": false,
+      "id": "C007"
+    },
+    {
+      "source": "ai",
+      "type": "name_drift",
+      "severity": "medium",
+      "title": "Multiple spelling variants for Ashburg estate",
+      "detail": "The ducal seat is spelled in numerous ways across the series including Ashburg, Ashbury, Ashburton, Ashbourne, Ashburgh, and Ashburn.",
+      "evidence": [
+        {
+          "ep": 19,
+          "beat": "E19.29",
+          "quote": "Tell me what is happening in Ashburg.",
+          "time": "00:47.10",
+          "verified": true,
+          "matchScore": 1
+        },
+        {
+          "ep": 20,
+          "beat": "E20.14",
+          "quote": "Once my cousin Alexander's death is formally sealed by the Crown...",
+          "time": "00:21.30",
+          "verified": true,
+          "matchScore": 1
+        }
+      ],
+      "fix": "Consolidate all references to the estate under one canonical spelling in the script and subtitles.",
+      "pipeline_impact": "subtitle",
+      "verifiedEvidence": 2,
+      "unverified": false,
+      "id": "C008"
+    }
+  ],
+  "bible": {
+    "characters": [
+      {
+        "canonical": "Lady Juliana Ashcroft",
+        "aliases": [
+          "Juliana",
+          "Julian",
+          "Miss Ashcroft",
+          "The healer",
+          "The maid",
+          "Lady Juliana",
+          "Duchess of Ashburton"
+        ],
+        "speaker_labels": [
+          "LADY JULIANA",
+          "JULIANA"
+        ],
+        "role": "Protagonist, healer, wife of Alexander",
+        "notes": "Rightful Duchess by marriage."
+      },
+      {
+        "canonical": "Alexander Ashburn",
+        "aliases": [
+          "Alexander",
+          "Alexander Ashwin",
+          "Alexander Ashburton",
+          "Your husband",
+          "Your Grace",
+          "soldier",
+          "cousin Alexander",
+          "The scarred soldier",
+          "Rightful Duke of Ashburn"
+        ],
+        "speaker_labels": [
+          "ALEXANDER",
+          "MYSTERIOUS BEARDED MAN",
+          "THE FORMER GROOM",
+          "THE BEARDED STRANGER"
+        ],
+        "role": "True Lord of Ashbury / Duke of Ashburn, veteran",
+        "notes": "Presumed dead on the Iberian front for 3 years before returning."
+      },
+      {
+        "canonical": "Clarissa",
+        "aliases": [
+          "Clarisse",
+          "Lady Clarissa",
+          "sister"
+        ],
+        "speaker_labels": [
+          "CLARISSA",
+          "LADY CLARISSA"
+        ],
+        "role": "Juliana's sister",
+        "notes": "Associated with Gerald."
+      },
+      {
+        "canonical": "Catherine",
+        "aliases": [
+          "Lady Catherine",
+          "Lady Catherine Ashbridge",
+          "Catherine Ashbridge",
+          "Duchess of Ashburgh"
+        ],
+        "speaker_labels": [
+          "CATHERINE",
+          "LADY CATHERINE",
+          "LADY IN GOLD GOWN"
+        ],
+        "role": "Antagonist, initially Rupert's partner/wife, later scullery maid",
+        "notes": "Conspired against Alexander and Juliana."
+      },
+      {
+        "canonical": "Rupert",
+        "aliases": [
+          "Lord Rupert Ashburn",
+          "Lord Sterling",
+          "Blond Nobleman",
+          "ignored cousin"
+        ],
+        "speaker_labels": [
+          "RUPERT",
+          "BLOND NOBLEMAN",
+          "CROWN OFFICIAL"
+        ],
+        "role": "Usurper, antagonist, groom",
+        "notes": "Implicated in treason and imprisoned."
+      },
+      {
+        "canonical": "Dowager Duchess",
+        "aliases": [
+          "Her Grace",
+          "The Duchess",
+          "The old woman",
+          "Alexander's Mother",
+          "Alexander's elderly mother",
+          "LADY ASHBOURNE"
+        ],
+        "speaker_labels": [
+          "DOWAGER DUCHESS",
+          "MATRIARCH",
+          "NOBLE MATRIARCH"
+        ],
+        "role": "Mother of Alexander",
+        "notes": "Subjected to arsenic poisoning and captivity."
+      },
+      {
+        "canonical": "Prudence",
+        "aliases": [
+          "young maid",
+          "MAID"
+        ],
+        "speaker_labels": [
+          "PRUDENCE",
+          "MAID"
+        ],
+        "role": "Maid, Toby's sister",
+        "notes": "Coerced into giving false testimony."
+      },
+      {
+        "canonical": "Toby",
+        "aliases": [
+          "seven-year-old brother"
+        ],
+        "speaker_labels": [
+          "TOBY"
+        ],
+        "role": "Prudence's younger brother",
+        "notes": "Saved by Juliana's healing."
+      },
+      {
+        "canonical": "Gerald",
+        "aliases": [
+          "Gerald Harrington",
+          "Lord Harrington"
+        ],
+        "speaker_labels": [
+          "GERALD",
+          "LORD HARRINGTON"
+        ],
+        "role": "Antagonist, former fiancé of Juliana",
+        "notes": "Planted pocket watch and hired thugs."
+      },
+      {
+        "canonical": "Father Thomas",
+        "aliases": [
+          "High Priest",
+          "PRIEST"
+        ],
+        "speaker_labels": [
+          "HIGH PRIEST",
+          "THE PRIEST",
+          "FATHER THOMAS"
+        ],
+        "role": "Clergyman, co-conspirator with Catherine",
+        "notes": "Invalidated the wedding and engaged in corrupt alliances."
+      }
+    ],
+    "places": [
+      {
+        "canonical": "Ashbourne Manor",
+        "variants": [
+          "Ashbury",
+          "Ashburg",
+          "Ashburton Manor",
+          "Ashbrook",
+          "Ashwood",
+          "Ashbridge Manor",
+          "Ashbridge"
+        ]
+      },
+      {
+        "canonical": "Cathedral",
+        "variants": [
+          "church",
+          "chapel",
+          "grand cathedral",
+          "sanctuary"
+        ]
+      },
+      {
+        "canonical": "Dungeon",
+        "variants": [
+          "wet cells",
+          "cellar",
+          "stone dungeon",
+          "undercroft cells"
+        ]
+      },
+      {
+        "canonical": "Cottage",
+        "variants": [
+          "our home",
+          "home"
+        ]
+      },
+      {
+        "canonical": "Blackwood",
+        "variants": [
+          "the village"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "canonical": "Mother's Herbal Ledger",
+        "variants": [
+          "mother's book",
+          "leather-bound herbal ledger",
+          "mother's remedy journal",
+          "herbarium",
+          "book of weeds",
+          "botanical book",
+          "forbidden book",
+          "scorched leather-bound herbal"
+        ]
+      },
+      {
+        "canonical": "Signet Ring",
+        "variants": [
+          "emerald signet ring",
+          "ring",
+          "wedding ring"
+        ]
+      },
+      {
+        "canonical": "Gold Pocket Watch",
+        "variants": [
+          "watch"
+        ]
+      },
+      {
+        "canonical": "War Office Dossier",
+        "variants": [
+          "dossier stamped 'WAR OFFICE - TOP SECRET'",
+          "documents"
+        ]
+      }
+    ]
+  },
+  "inventory": {
+    "speakerLabels": [
+      {
+        "label": "MATRIARCH",
+        "lines": 8,
+        "episodes": [
+          1
+        ]
+      },
+      {
+        "label": "LADY JULIANA",
+        "lines": 110,
+        "episodes": [
+          1,
+          2,
+          3,
+          21,
+          22,
+          23,
+          24,
+          34
+        ]
+      },
+      {
+        "label": "LADY IN GOLD GOWN",
+        "lines": 17,
+        "episodes": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "label": "THE FORMER GROOM",
+        "lines": 16,
+        "episodes": [
+          1,
+          2,
+          3,
+          9
+        ]
+      },
+      {
+        "label": "BLOND NOBLEMAN",
+        "lines": 53,
+        "episodes": [
+          2,
+          9,
+          27,
+          28,
+          37,
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "label": "OFF-SCREEN VOICE",
+        "lines": 2,
+        "episodes": [
+          2
+        ]
+      },
+      {
+        "label": "NOBLE MATRIARCH",
+        "lines": 11,
+        "episodes": [
+          3
+        ]
+      },
+      {
+        "label": "THE BEARDED STRANGER",
+        "lines": 15,
+        "episodes": [
+          3
+        ]
+      },
+      {
+        "label": "ROYAL GUARD",
+        "lines": 6,
+        "episodes": [
+          3,
+          40,
+          42,
+          43
+        ]
+      },
+      {
+        "label": "GERALD",
+        "lines": 32,
+        "episodes": [
+          4,
+          5,
+          7,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "label": "CLARISSA",
+        "lines": 17,
+        "episodes": [
+          4,
+          5,
+          12,
+          13
+        ]
+      },
+      {
+        "label": "JULIANA",
+        "lines": 352,
+        "episodes": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          25,
+          26,
+          27,
+          28,
+          29,
+          31,
+          32,
+          37,
+          38,
+          41,
+          42,
+          45,
+          46,
+          47
+        ]
+      },
+      {
+        "label": "MYSTERIOUS BEARDED MAN",
+        "lines": 28,
+        "episodes": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "label": "THE PRIEST",
+        "lines": 5,
+        "episodes": [
+          4
+        ]
+      },
+      {
+        "label": "LADY ASHCROFT",
+        "lines": 6,
+        "episodes": [
+          4,
+          5
+        ]
+      },
+      {
+        "label": "LORD ASHCROFT",
+        "lines": 8,
+        "episodes": [
+          5
+        ]
+      },
+      {
+        "label": "ARISTOCRATIC WOMAN",
+        "lines": 5,
+        "episodes": [
+          7
+        ]
+      },
+      {
+        "label": "SCARRED BEARDED MAN",
+        "lines": 1,
+        "episodes": [
+          7
+        ]
+      },
+      {
+        "label": "ALEXANDER",
+        "lines": 202,
+        "episodes": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          16,
+          17,
+          18,
+          19,
+          25,
+          35,
+          36,
+          39,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47
+        ]
+      },
+      {
+        "label": "PEASANT MOTHER",
+        "lines": 7,
+        "episodes": [
+          9
+        ]
+      },
+      {
+        "label": "CONSTABLE",
+        "lines": 5,
+        "episodes": [
+          11,
+          12
+        ]
+      },
+      {
+        "label": "THUG WITH CAP",
+        "lines": 10,
+        "episodes": [
+          15,
+          16
+        ]
+      },
+      {
+        "label": "BALD THUG",
+        "lines": 3,
+        "episodes": [
+          15,
+          16
+        ]
+      },
+      {
+        "label": "TALL THUG",
+        "lines": 1,
+        "episodes": [
+          15
+        ]
+      },
+      {
+        "label": "THIRD THUG",
+        "lines": 1,
+        "episodes": [
+          16
+        ]
+      },
+      {
+        "label": "ELDER VILLAGER",
+        "lines": 6,
+        "episodes": [
+          19
+        ]
+      },
+      {
+        "label": "INFORMANT",
+        "lines": 9,
+        "episodes": [
+          19
+        ]
+      },
+      {
+        "label": "CATHERINE",
+        "lines": 187,
+        "episodes": [
+          20,
+          28,
+          29,
+          30,
+          31,
+          32,
+          37,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50
+        ]
+      },
+      {
+        "label": "RUPERT",
+        "lines": 22,
+        "episodes": [
+          20,
+          30,
+          45
+        ]
+      },
+      {
+        "label": "SEAMUS",
+        "lines": 6,
+        "episodes": [
+          20
+        ]
+      },
+      {
+        "label": "PRUDENCE",
+        "lines": 38,
+        "episodes": [
+          21,
+          22,
+          23,
+          24,
+          34
+        ]
+      },
+      {
+        "label": "HOUSEKEEPER",
+        "lines": 7,
+        "episodes": [
+          22
+        ]
+      },
+      {
+        "label": "NOBLEWOMAN",
+        "lines": 14,
+        "episodes": [
+          24,
+          41
+        ]
+      },
+      {
+        "label": "DOWAGER DUCHESS",
+        "lines": 26,
+        "episodes": [
+          26,
+          27,
+          28,
+          43
+        ]
+      },
+      {
+        "label": "LADY CATHERINE",
+        "lines": 9,
+        "episodes": [
+          27
+        ]
+      },
+      {
+        "label": "GUARD",
+        "lines": 3,
+        "episodes": [
+          29,
+          38
+        ]
+      },
+      {
+        "label": "ELDER NOBLEMAN",
+        "lines": 19,
+        "episodes": [
+          30,
+          40
+        ]
+      },
+      {
+        "label": "LORD",
+        "lines": 36,
+        "episodes": [
+          33,
+          34
+        ]
+      },
+      {
+        "label": "MAID",
+        "lines": 20,
+        "episodes": [
+          33
+        ]
+      },
+      {
+        "label": "JUDGE",
+        "lines": 19,
+        "episodes": [
+          34
+        ]
+      },
+      {
+        "label": "TOWNSMAN",
+        "lines": 2,
+        "episodes": [
+          34
+        ]
+      },
+      {
+        "label": "OLD WOMAN",
+        "lines": 1,
+        "episodes": [
+          34
+        ]
+      },
+      {
+        "label": "ALEXANDER'S MOTHER",
+        "lines": 39,
+        "episodes": [
+          35,
+          36,
+          42
+        ]
+      },
+      {
+        "label": "BUTLER",
+        "lines": 1,
+        "episodes": [
+          37
+        ]
+      },
+      {
+        "label": "LADY CLARISSA",
+        "lines": 11,
+        "episodes": [
+          37
+        ]
+      },
+      {
+        "label": "NOBLEMAN",
+        "lines": 8,
+        "episodes": [
+          37,
+          41
+        ]
+      },
+      {
+        "label": "LOYALIST SCOUT",
+        "lines": 2,
+        "episodes": [
+          39
+        ]
+      },
+      {
+        "label": "LOYALIST FIGHTER",
+        "lines": 4,
+        "episodes": [
+          39
+        ]
+      },
+      {
+        "label": "ROYAL SENTRY",
+        "lines": 1,
+        "episodes": [
+          39
+        ]
+      },
+      {
+        "label": "CART DRIVER",
+        "lines": 2,
+        "episodes": [
+          39
+        ]
+      },
+      {
+        "label": "LOYALIST",
+        "lines": 2,
+        "episodes": [
+          39
+        ]
+      },
+      {
+        "label": "FOOTMAN",
+        "lines": 1,
+        "episodes": [
+          40
+        ]
+      },
+      {
+        "label": "LADY HARRINGTON",
+        "lines": 7,
+        "episodes": [
+          40
+        ]
+      },
+      {
+        "label": "LORD HARRINGTON",
+        "lines": 4,
+        "episodes": [
+          40
+        ]
+      },
+      {
+        "label": "PRIEST",
+        "lines": 1,
+        "episodes": [
+          41
+        ]
+      },
+      {
+        "label": "CROWN OFFICIAL",
+        "lines": 9,
+        "episodes": [
+          43
+        ]
+      },
+      {
+        "label": "POLICE CONSTABLE",
+        "lines": 3,
+        "episodes": [
+          43,
+          44
+        ]
+      },
+      {
+        "label": "LORD STERLING",
+        "lines": 1,
+        "episodes": [
+          44
+        ]
+      },
+      {
+        "label": "HIGH PRIEST",
+        "lines": 22,
+        "episodes": [
+          45,
+          46
+        ]
+      },
+      {
+        "label": "CONSPIRATOR",
+        "lines": 1,
+        "episodes": [
+          47
+        ]
+      },
+      {
+        "label": "LADY ASHBOURNE",
+        "lines": 2,
+        "episodes": [
+          47
+        ]
+      },
+      {
+        "label": "VAUGHN",
+        "lines": 1,
+        "episodes": [
+          47
+        ]
+      },
+      {
+        "label": "AGNES",
+        "lines": 3,
+        "episodes": [
+          48
+        ]
+      },
+      {
+        "label": "FATHER THOMAS",
+        "lines": 17,
+        "episodes": [
+          49,
+          50
+        ]
+      }
+    ],
+    "descriptorLabels": [
+      {
+        "label": "BLOND NOBLEMAN",
+        "lines": 53,
+        "episodes": [
+          2,
+          9,
+          27,
+          28,
+          37,
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "label": "MYSTERIOUS BEARDED MAN",
+        "lines": 28,
+        "episodes": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "label": "HIGH PRIEST",
+        "lines": 22,
+        "episodes": [
+          45,
+          46
+        ]
+      },
+      {
+        "label": "MAID",
+        "lines": 20,
+        "episodes": [
+          33
+        ]
+      },
+      {
+        "label": "ELDER NOBLEMAN",
+        "lines": 19,
+        "episodes": [
+          30,
+          40
+        ]
+      },
+      {
+        "label": "JUDGE",
+        "lines": 19,
+        "episodes": [
+          34
+        ]
+      },
+      {
+        "label": "LADY IN GOLD GOWN",
+        "lines": 17,
+        "episodes": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "label": "THE FORMER GROOM",
+        "lines": 16,
+        "episodes": [
+          1,
+          2,
+          3,
+          9
+        ]
+      },
+      {
+        "label": "THE BEARDED STRANGER",
+        "lines": 15,
+        "episodes": [
+          3
+        ]
+      },
+      {
+        "label": "NOBLEWOMAN",
+        "lines": 14,
+        "episodes": [
+          24,
+          41
+        ]
+      },
+      {
+        "label": "NOBLE MATRIARCH",
+        "lines": 11,
+        "episodes": [
+          3
+        ]
+      },
+      {
+        "label": "THUG WITH CAP",
+        "lines": 10,
+        "episodes": [
+          15,
+          16
+        ]
+      },
+      {
+        "label": "INFORMANT",
+        "lines": 9,
+        "episodes": [
+          19
+        ]
+      },
+      {
+        "label": "CROWN OFFICIAL",
+        "lines": 9,
+        "episodes": [
+          43
+        ]
+      },
+      {
+        "label": "MATRIARCH",
+        "lines": 8,
+        "episodes": [
+          1
+        ]
+      },
+      {
+        "label": "NOBLEMAN",
+        "lines": 8,
+        "episodes": [
+          37,
+          41
+        ]
+      },
+      {
+        "label": "PEASANT MOTHER",
+        "lines": 7,
+        "episodes": [
+          9
+        ]
+      },
+      {
+        "label": "HOUSEKEEPER",
+        "lines": 7,
+        "episodes": [
+          22
+        ]
+      },
+      {
+        "label": "ROYAL GUARD",
+        "lines": 6,
+        "episodes": [
+          3,
+          40,
+          42,
+          43
+        ]
+      },
+      {
+        "label": "ELDER VILLAGER",
+        "lines": 6,
+        "episodes": [
+          19
+        ]
+      },
+      {
+        "label": "THE PRIEST",
+        "lines": 5,
+        "episodes": [
+          4
+        ]
+      },
+      {
+        "label": "ARISTOCRATIC WOMAN",
+        "lines": 5,
+        "episodes": [
+          7
+        ]
+      },
+      {
+        "label": "CONSTABLE",
+        "lines": 5,
+        "episodes": [
+          11,
+          12
+        ]
+      },
+      {
+        "label": "LOYALIST FIGHTER",
+        "lines": 4,
+        "episodes": [
+          39
+        ]
+      },
+      {
+        "label": "BALD THUG",
+        "lines": 3,
+        "episodes": [
+          15,
+          16
+        ]
+      },
+      {
+        "label": "GUARD",
+        "lines": 3,
+        "episodes": [
+          29,
+          38
+        ]
+      },
+      {
+        "label": "POLICE CONSTABLE",
+        "lines": 3,
+        "episodes": [
+          43,
+          44
+        ]
+      }
+    ],
+    "possessiveObjects": [
+      {
+        "owner": "mother's",
+        "object": "life",
+        "count": 3,
+        "episodes": [
+          28,
+          31,
+          47
+        ],
+        "first": "E28.91"
+      },
+      {
+        "owner": "mother's",
+        "object": "book",
+        "count": 3,
+        "episodes": [
+          33,
+          34
+        ],
+        "first": "E33.24"
+      },
+      {
+        "owner": "husband's",
+        "object": "name",
+        "count": 2,
+        "episodes": [
+          27,
+          38
+        ],
+        "first": "E27.24"
+      },
+      {
+        "owner": "mother's",
+        "object": "vintage gown",
+        "count": 1,
+        "episodes": [
+          1
+        ],
+        "first": "E1.1"
+      },
+      {
+        "owner": "mother's",
+        "object": "gown",
+        "count": 1,
+        "episodes": [
+          1
+        ],
+        "first": "E1.36"
+      },
+      {
+        "owner": "mother's",
+        "object": "silk bridal gown",
+        "count": 1,
+        "episodes": [
+          1
+        ],
+        "first": "E1.89"
+      },
+      {
+        "owner": "mother's",
+        "object": "apothecary herbs",
+        "count": 1,
+        "episodes": [
+          2
+        ],
+        "first": "E2.44"
+      },
+      {
+        "owner": "mother's",
+        "object": "church",
+        "count": 1,
+        "episodes": [
+          3
+        ],
+        "first": "E3.36"
+      },
+      {
+        "owner": "family's",
+        "object": "chapel",
+        "count": 1,
+        "episodes": [
+          3
+        ],
+        "first": "E3.61"
+      },
+      {
+        "owner": "mother's",
+        "object": "precious legacy has",
+        "count": 1,
+        "episodes": [
+          5
+        ],
+        "first": "E5.35"
+      },
+      {
+        "owner": "mother's",
+        "object": "hands",
+        "count": 1,
+        "episodes": [
+          9
+        ],
+        "first": "E9.52"
+      },
+      {
+        "owner": "mother's",
+        "object": "medicines",
+        "count": 1,
+        "episodes": [
+          11
+        ],
+        "first": "E11.50"
+      },
+      {
+        "owner": "husband's",
+        "object": "freedom",
+        "count": 1,
+        "episodes": [
+          13
+        ],
+        "first": "E13.43"
+      },
+      {
+        "owner": "mother's",
+        "object": "plants",
+        "count": 1,
+        "episodes": [
+          15
+        ],
+        "first": "E15.37"
+      },
+      {
+        "owner": "mother's",
+        "object": "scorched leather-bound herbal",
+        "count": 1,
+        "episodes": [
+          19
+        ],
+        "first": "E19.0"
+      },
+      {
+        "owner": "mother's",
+        "object": "book almost burned",
+        "count": 1,
+        "episodes": [
+          19
+        ],
+        "first": "E19.4"
+      },
+      {
+        "owner": "son's",
+        "object": "life",
+        "count": 1,
+        "episodes": [
+          19
+        ],
+        "first": "E19.14"
+      },
+      {
+        "owner": "father's",
+        "object": "room",
+        "count": 1,
+        "episodes": [
+          19
+        ],
+        "first": "E19.31"
+      },
+      {
+        "owner": "mother's",
+        "object": "knowledge",
+        "count": 1,
+        "episodes": [
+          21
+        ],
+        "first": "E21.39"
+      },
+      {
+        "owner": "mother's",
+        "object": "leather-bound herbal ledger",
+        "count": 1,
+        "episodes": [
+          21
+        ],
+        "first": "E21.74"
+      },
+      {
+        "owner": "mother's",
+        "object": "remedy journal",
+        "count": 1,
+        "episodes": [
+          24
+        ],
+        "first": "E24.63"
+      },
+      {
+        "owner": "mother's",
+        "object": "locket",
+        "count": 1,
+        "episodes": [
+          28
+        ],
+        "first": "E28.63"
+      },
+      {
+        "owner": "mother's",
+        "object": "only legacy",
+        "count": 1,
+        "episodes": [
+          29
+        ],
+        "first": "E29.5"
+      },
+      {
+        "owner": "mother's",
+        "object": "little book",
+        "count": 1,
+        "episodes": [
+          29
+        ],
+        "first": "E29.12"
+      },
+      {
+        "owner": "mother's",
+        "object": "ledger",
+        "count": 1,
+        "episodes": [
+          29
+        ],
+        "first": "E29.68"
+      },
+      {
+        "owner": "son's",
+        "object": "scarred face",
+        "count": 1,
+        "episodes": [
+          36
+        ],
+        "first": "E36.0"
+      }
+    ]
+  }
+}

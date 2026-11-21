@@ -1,0 +1,83 @@
+{
+  "id": "T08-divorce-out-of-scope",
+  "why": "Out of scope (family law): must say so and route to a lawyer / legal aid",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v3",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "My husband wants a divorce and says he will take custody of our 6 year old son. I don't have money for a lawyer. What do I do?",
+      "reply": "I am so sorry you are going through this. Please know that family law and child custody matters are very sensitive, and you will need a lawyer to handle this properly. Because this involves family law and child custody, I cannot handle it directly, and you must consult a lawyer.\n\nHowever, you do not need to worry about money for a lawyer. Under the law, women have a legal right to free legal services, which includes a free lawyer, drafting, and advice. You can ask the District Legal Services Authority (DLSA) at your district court for help, or call the free NALSA helpline at 15100. Please reach out to them right away.",
+      "language": "en",
+      "topic": "other",
+      "stage": "intake",
+      "needsLawyer": true,
+      "lawyerReason": "This is a family law and child custody matter, which requires a lawyer. Free legal aid is available through DLSA or NALSA helpline 15100.",
+      "sources": [
+        "legal-aid"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": "lawyer",
+        "reasons": [
+          "family-law matter",
+          "property / inheritance matter"
+        ]
+      },
+      "nextActions": [
+        "Call NALSA helpline 15100",
+        "Contact District Legal Services Authority (DLSA)"
+      ]
+    }
+  ],
+  "draft": null,
+  "practice": null,
+  "checks": [
+    {
+      "id": "needs_lawyer",
+      "ok": true,
+      "got": true,
+      "want": true
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "en",
+      "want": "en"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin",
+      "want": "latin"
+    },
+    {
+      "id": "mentions_15100",
+      "ok": true,
+      "want": "15100"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    }
+  ],
+  "caseFile": {
+    "summary": "Husband wants a divorce and child custody of their 6 year old son. Person needs financial help for a lawyer.",
+    "person": "Wife",
+    "other_side": "Husband",
+    "amount": "",
+    "key_dates": [],
+    "evidence_have": [],
+    "evidence_missing": [],
+    "goal": "Get free legal help for divorce and child custody",
+    "deadline_risks": []
+  }
+}

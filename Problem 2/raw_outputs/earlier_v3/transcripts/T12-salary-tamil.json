@@ -1,0 +1,77 @@
+{
+  "id": "T12-salary-tamil",
+  "why": "Another Indian language (Tamil): reply must stay in Tamil",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v3",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "என் கம்பெனி மூன்று மாதமாக சம்பளம் கொடுக்கவில்லை. நான் சென்னையில் ஒரு கடையில் வேலை செய்கிறேன். என்ன செய்வது?",
+      "reply": "வணக்கம், நான் ஹக். நீங்கள் பணம் சம்பந்தப்பட்ட சிக்கல்களுக்கு உதவக்கூடிய ஒரு சட்ட உதவி உதவியாளர், ஆனால் நான் வழக்கறிஞர் அல்ல. உங்கள் கடை சென்னை என்பதால், உங்களிடம் வேலை ஒப்பந்தம், வருகைப் பதிவேடு அல்லது சம்பளத் துண்டுச்சீட்டு போன்ற ஆவணங்கள் ஏதேனும் உள்ளதா? மேலும், கடை உரிமையாளரிடம் இது பற்றிக் கேட்டீர்களா?",
+      "language": "ta",
+      "topic": "salary",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "sources": [],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "என்ன ஆவணங்கள் உள்ளன?",
+        "அடுத்து என்ன செய்வது?"
+      ]
+    }
+  ],
+  "draft": null,
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "salary",
+      "want": "salary"
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "ta",
+      "want": "ta"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "tamil",
+      "want": "tamil"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    }
+  ],
+  "caseFile": {
+    "summary": "Company in Chennai hasn't paid salary for 3 months.",
+    "person": "Employee working in a shop in Chennai",
+    "other_side": "Shop owner / Company",
+    "amount": "",
+    "key_dates": [],
+    "evidence_have": [],
+    "evidence_missing": [
+      "Employment agreement",
+      "Attendance records",
+      "Salary slips"
+    ],
+    "goal": "Get unpaid salary for 3 months",
+    "deadline_risks": []
+  }
+}

@@ -1,0 +1,24 @@
+PASS  keeps verified section+act
+PASS  keeps NI Act 138
+PASS  keeps Hindi dhara 138
+PASS  keeps Code on Wages s17
+PASS  keeps Order XXXVII
+PASS  keeps replaced-law mention
+PASS  drops IPC 420
+PASS  drops wrong act for real number
+PASS  drops invented section
+PASS  drops case law
+PASS  drops SCC citation
+PASS  drops Article 21
+PASS  drops unknown statute
+PASS  drops hindi invented dhara
+PASS  partial redaction keeps the good one
+PASS  red flag: police
+PASS  red flag: urgent
+PASS  red flag: big amount
+PASS  red flag: rupees
+PASS  no flag: "will" as a verb (v5 regression)
+PASS  flag: a last will
+PASS  no flag: deposit
+
+all passed

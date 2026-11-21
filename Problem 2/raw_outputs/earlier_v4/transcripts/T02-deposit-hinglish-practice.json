@@ -1,0 +1,117 @@
+{
+  "id": "T02-deposit-hinglish-practice",
+  "why": "Hinglish, weaker evidence, then role-play with the landlord",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v4",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "Bhai mera landlord 2 mahine ka deposit 30000 wapas nahi de raha, bolta hai flat ganda chhoda. Kya karun?",
+      "reply": "Main samajh sakta hoon ki yeh pareshani ki baat hai. Landlord bina kisi valid proof ke aese paise nahi rok sakta. Aapne kab flat khali kiya tha, aur kya aapke paas rent agreement aur deposit dene ki koi slip ya bank statement hai?",
+      "language": "hinglish",
+      "topic": "deposit",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "sources": [
+        "deposit-basics"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "Mere paas agreement aur receipt hai",
+        "Mere paas koi proof nahi hai"
+      ]
+    },
+    {
+      "user": "Agreement tha but registered nahi tha, bas notary wala. Whatsapp pe usne likha tha ki deposit wapas milega.",
+      "reply": "Notary wala agreement aur WhatsApp chat bhi kaafi useful proof hain! Usme deposit ka zikr hona achhi baat hai. Aapne flat kab khaali kiya tha, aur kya deposit dene ka koi bank transfer proof ya receipt bhi hai?",
+      "language": "hinglish",
+      "topic": "deposit",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "sources": [
+        "deposit-basics"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "Batayein flat kab khali kiya",
+        "Kya bank payment proof hai?"
+      ]
+    }
+  ],
+  "draft": null,
+  "practice": [
+    {
+      "user": "Sharma ji, maine flat saaf karke chhoda tha, photos bhi hain. Mera 30000 deposit kab tak wapas karoge?",
+      "inCharacter": "Arre bhai, photos dikhane se kya hota hai? Kitchen ki chimney mein kitna grease jama tha, wo toh dekho! Painter ko bulana pada, uske 5,000 rupaye alag se lage hain aur do din flat band raha. Main pura 30,000 thodi na wapas kar sakta hoon, kuch kaat-kut ke hi milega. Abhi thodi tangi chal rahi hai, agle mahine dekhte hain.",
+      "coachTip": "Respond calmly in writing, reference your move-out photos and the rent agreement terms, state a specific deadline (e.g., 5 days) for returning the balance, and mention that you will initiate formal legal action if unpaid.",
+      "score": 6,
+      "model": "gemini-3.5-flash-lite"
+    }
+  ],
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "deposit",
+      "want": "deposit"
+    },
+    {
+      "id": "needs_lawyer",
+      "ok": true,
+      "got": false,
+      "want": false
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "hinglish,hinglish",
+      "want": "hinglish"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin,latin",
+      "want": "latin"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    }
+  ],
+  "caseFile": {
+    "summary": "Tenant's landlord refusing to return security deposit of Rs 30,000 claiming flat was dirty. Tenant has a notary rent agreement and WhatsApp chat confirming deposit.",
+    "person": "Tenant",
+    "other_side": "Landlord",
+    "amount": "Rs 30000",
+    "key_dates": [],
+    "evidence_have": [
+      "Notary rent agreement",
+      "WhatsApp chat confirming deposit"
+    ],
+    "evidence_missing": [
+      "Deposit payment proof",
+      "Move-out date"
+    ],
+    "goal": "Recover security deposit",
+    "deadline_risks": []
+  }
+}

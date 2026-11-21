@@ -1,0 +1,83 @@
+Reading 50 files · mode AI (gemini/gemini-3.5-flash-lite) · output C:\Users\braje\OneDrive\Desktop\As\kuku\outputs\p1\ai
+
+  parsed: 50 episodes, 3727 beats
+  judged 1/50 episodes     judged 2/50 episodes     judged 3/50 episodes     judged 4/50 episodes     judged 5/50 episodes     judged 6/50 episodes     judged 7/50 episodes     judged 8/50 episodes     judged 9/50 episodes     judged 10/50 episodes     judged 11/50 episodes     judged 12/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 13/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 14/50 episodes     judged 15/50 episodes     judged 16/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 17/50 episodes     judged 18/50 episodes     judged 19/50 episodes     judged 20/50 episodes     judged 21/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 22/50 episodes     judged 23/50 episodes     judged 24/50 episodes     judged 25/50 episodes     judged 26/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 27/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  judged 28/50 episodes     judged 29/50 episodes     judged 30/50 episodes     judged 31/50 episodes     judged 32/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 33/50 episodes     judged 34/50 episodes     judged 35/50 episodes     judged 36/50 episodes     judged 37/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 38/50 episodes     judged 39/50 episodes     judged 40/50 episodes     judged 41/50 episodes     judged 42/50 episodes     judged 43/50 episodes     judged 44/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 45/50 episodes     judged 46/50 episodes     judged 47/50 episodes     judged 48/50 episodes     judged 49/50 episodes     judged 50/50 episodes   
+  montage
+
+  critic
+  critic 8/112     critic 16/112     critic 24/112     critic 32/112     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  critic 40/112     critic 48/112     critic 56/112     critic 64/112     critic 72/112     critic 80/112     critic 88/112     critic 96/112     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  critic 104/112     critic 112/112   
+Done in 356.6s: 112 promos (106 pass all checks), errors 0
+LLM: 65 calls, 213915 in / 36408 out tokens
+Posting order: P031, P039, P006, P007, P037, P070, P080, P108, P020

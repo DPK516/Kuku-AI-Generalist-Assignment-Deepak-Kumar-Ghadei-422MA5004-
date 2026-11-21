@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Continuity Guard</title>
+<meta name="description" content="Pre-render continuity check for AI microdrama scripts: name drift, speaker-label drift, contradictions, with episode and timestamp evidence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .issue { display: grid; gap: 6px; }
+  .issue h3 { margin: 0; font-size: 16px; }
+  table.ev { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.ev td, table.ev th { border-top: 1px solid var(--line); padding: 5px 6px; text-align: left; vertical-align: top; }
+  table.ev th { color: var(--ink-3); font-weight: 500; font-size: 12px; }
+  .ev .mono { white-space: nowrap; }
+  .issue.accepted { outline: 2px solid var(--good); }
+  .issue.rejected { opacity: .5; }
+  .evidence-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+  .why-box { font-size: 14.5px; }
+  .why-box b { color: var(--ink); }
+  .bible td, .bible th { font-size: 13px; padding: 5px 6px; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .bible { width: 100%; border-collapse: collapse; }
+</style>
+</head>
+<body>
+<div id="hdr"></div>
+<main class="wrap">
+  <section class="hero">
+    <span class="pill accent">Problem 3 · my own problem</span>
+    <h1>Continuity Guard</h1>
+    <p class="lede">For the story editor who signs off a batch of AI-generated microdrama scripts before they go to video and voice generation. It catches the same character, place or prop being named differently across episodes, and flags facts that contradict each other. Each issue comes with episode and timestamp evidence, plus a canonical story bible the pipeline can use to keep faces, voices and names consistent.</p>
+  </section>
+
+  <section class="card why-box">
+    <h2>Why this problem</h2>
+    <div class="evidence-bar" style="margin:10px 0 14px">
+      <div class="stat"><b>116 / 15</b><span>"plot logic" complaints / explicit quits: the most quits of any reason</span></div>
+      <div class="stat"><b>48 + 39</b><span>top AI flaws viewers name: look-alike faces; voices, accents and mispronounced names</span></div>
+      <div class="stat"><b>11 / 11</b><span>dubbing/translation complaints that ended in a quit</span></div>
+      <div class="stat"><b>6 spellings</b><span>of the Duke's estate across the 50 Kuku episodes in the input pack</span></div>
+    </div>
+    <p class="muted">Viewer numbers: Animatic Media, <a href="https://www.animaticmedia.com/the-lab/microdrama-audience-report-november-2026" target="_blank" rel="noopener">Microdrama audience report, Nov 2026</a> (2,630 coded public viewer posts, October 2026). An AI pipeline takes the script literally. A speaker label picks the voice and the face reference, and a spelling picks the pronunciation. Text drift becomes visible drift on screen. A script is the cheapest place to fix it: one text edit before rendering, instead of re-rendering shots after viewers notice.</p>
+  </section>
+
+  <section class="grid two" style="margin-top:16px">
+    <div class="card stack">
+      <h2>1 · Scripts</h2>
+      <label class="drop" id="drop" tabindex="0">
+        <strong>Drop a .zip or the episode .txt files</strong>
+        <span class="muted">Parsed in your browser. Nothing is uploaded to this site.</span>
+        <input id="file" type="file" multiple accept=".zip,.txt" class="sr">
+      </label>
+      <div id="parsed" class="muted"></div>
+      <div class="row"><button class="ghost small" id="openJson">Open a saved report .json</button><input id="jsonFile" type="file" accept=".json" class="sr"></div>
+    </div>
+    <div class="card stack">
+      <h2>2 · Check</h2>
+      <div id="model"></div>
+      <div class="row"><button class="primary" id="run" disabled>Run continuity check</button><span class="faint" id="est"></span></div>
+      <div class="progress"><i id="bar"></i></div>
+      <div class="log" id="log"></div>
+    </div>
+  </section>
+
+  <section id="results" class="hidden stack" style="margin-top:22px">
+    <div class="stats" id="stats"></div>
+    <div class="card"><div class="row"><h2 style="margin:0">Issues</h2><span class="spacer"></span>
+      <select id="fSev"><option value="all">All</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option><option value="open">Not yet reviewed</option></select>
+      <button class="small" id="dlMd">Report .md</button><button class="small" id="dlJson">JSON</button><button class="small" id="dlBible">Story bible .json</button></div>
+      <p class="faint" style="font-size:13px;margin:6px 0 0">Accept or reject each issue. The acceptance rate is how this tool should be judged in production (see the doc).</p></div>
+    <div id="list" class="stack"></div>
+    <div class="card hidden" id="bibleCard"><h2>Story bible</h2><div id="bible"></div></div>
+  </section>
+
+  <section class="card" style="margin-top:22px">
+    <h2>How it works</h2>
+    <div class="grid three" style="font-size:14px">
+      <div><b>Rules (code, free, instant)</b><p class="muted">Groups near-identical proper nouns (Ashburn / Ashburton…) and speaker labels for one person (JULIANA / LADY JULIANA), with every occurrence as evidence. It knows LADY X and LORD X are two people.</p></div>
+      <div><b>Fact ledger (AI)</b><p class="muted">Reads episodes in batches of 10 and records who is who, aliases, places, props, status changes and timeline facts, each with an exact quote.</p></div>
+      <div><b>Reconcile + verify</b><p class="muted">AI compares the ledgers for contradictions. Code then checks every quote against the real script. Issues whose evidence can't be found are marked unverified and sorted last.</p></div>
+    </div>
+  </section>
+  <p class="footer">Problem 3 of the AI Generalist assignment.</p>
+</main>
+<script type="module" src="js/continuity/app.js"></script>
+</body>
+</html>

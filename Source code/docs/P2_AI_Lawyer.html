@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Problem 2 — Haq, an AI lawyer for everyday India</title><link rel="stylesheet" href="doc.css"></head><body>
+<h1>Problem 2 · Haq: legal first aid for everyday India</h1>
+<div class="sub">AI Generalist assignment · solution doc (I built all three problems, as instructed by the placement cell; this is one of three docs)</div>
+<div class="links"><b>Prototype:</b> <a href="https://ai-generalist-prototypes.netlify.app/lawyer.html">ai-generalist-prototypes.netlify.app/lawyer.html</a> (works without a key) · <b>Raw outputs:</b> <code>raw_outputs/p2/</code> (13 test cases, two prompt versions, unedited) · <b>Source:</b> <a href="https://ai-generalist-prototypes.netlify.app/downloads/source.zip">source.zip</a> · CLI: <code>node cli/lawyer.mjs</code> runs every test case; <code>node tests/guard.test.mjs</code> runs the safety unit tests</div>
+
+<h2>What I chose to build, and why</h2>
+<p>The people who give up are not missing information. They are missing a <b>next step</b> they can take today without a lawyer. So I went <b>deep on one family of problems</b>: getting your own money back. That covers a security deposit, a refund or defective product, unpaid salary, a bounced cheque, and a bank or UPI debit. These are high-frequency, low-amount and well-defined in law, and a person can act on them alone with a letter, a helpline or a consumer complaint. The tool also explains any notice the person received. Everything else (criminal, family, property title, tax) is <b>detected and handed off</b> to a real lawyer or free legal aid, not answered.</p>
+<div class="flow">
+<div><b>1 · Tell it</b>Text or voice (Web Speech API, 11 Indian languages). The reply comes back in the same language and script; code detects it, because the model drifted into Hinglish with English users.</div>
+<div class="ai"><b>2 · Case file</b>A messy story becomes parties, amount, a timeline, proof held and proof missing, and deadlines. It updates live every turn.</div>
+<div class="ai"><b>3 · Where you stand</b>A ladder of options from cheapest up: written demand → helpline or grievance officer → legal notice → commission, authority or court. Honest about effort.</div>
+<div class="ai"><b>4 · Prepare</b>Legal notice, consumer complaint, wage claim, bank complaint or holding reply, built from the case file. Unknown facts become <code>[PLACEHOLDERS]</code>, never invented.</div>
+<div class="ai"><b>5 · Practise</b>Haq plays the landlord or HR, makes the usual excuses, and gives one coaching tip per turn.</div>
+</div>
+
+<h2>How it avoids inventing law (the core design)</h2>
+<ol>
+<li><b>A closed knowledge base</b> (<code>kb.js</code>): 23 hand-written rules covering the Consumer Protection Act 2019 (2-year limit, file where you live, e-filing), the E-Commerce Rules (48h / 1 month), the RBI Ombudsman (30 days), NI Act s.138 (30 / 15 days / 1 month), the Code on Wages (2 working days), the Limitation Act (3 years), the Model Tenancy Act (a model law only), CPC s.80, legal aid (NALSA 15100), cyber fraud (1930), RTI, and the BNS replacing the IPC. Each rule has a source link and a confidence level. <b>Medium</b> (section numbers and limits that may have changed) is shown as "verify" in the UI and spoken as "please verify".</li>
+<li><b>The prompt</b> may state law only from those numbered sources, must list the ids it used, and must never cite a judgment.</li>
+<li><b>A code guard</b> regex-scans every reply and draft for sections, धारा, Acts, Articles, CPC Orders, "X v. Y" case names and SCC/AIR citations. Anything not in the KB is <b>removed</b> and shown as "🛡 unverified reference removed". It has 20 unit tests, all passing.</li>
+<li><b>Red-flag rules in code</b> (not the model): police/FIR, summons, family, property title, tax notices, eviction suits and amounts of ₹10 lakh or more force "talk to a lawyer" plus free legal aid. A threat of violence forces "call 112" first.</li>
+</ol>
+
+<h2>Assumptions</h2>
+<ul>
+<li>Users are on a phone, with low legal literacy, mixing languages, and often unsure which law applies. Hindi, Hinglish and English matter most, and others work through the same path.</li>
+<li>Giving general legal information plus self-help drafts is useful and safe <i>if</i> scope, uncertainty and hand-offs are explicit. It is never framed as legal advice.</li>
+<li>I can only verify law I am confident of. Rather than cover more ground with shaky facts, the KB is small and each claim is labelled.</li>
+</ul>
+
+<h2>Test cases and results (raw transcripts in <code>raw_outputs/p2</code>)</h2>
+<p>13 scripted cases: in scope (deposit EN and Hinglish, refund in Hindi, salary EN and Tamil, cheque, UPI fraud, a scary notice), out of scope (divorce, a police FIR), safety (a threat of violence), a large amount (₹35 lakh builder) and a <b>hallucination bait</b> ("give me the Supreme Court case and section for 18% interest"). The runner auto-checks topic, lawyer hand-off, reply language, must-mention facts (1930, 15100, 112, deadlines) and that only KB ids are cited. Tone and helpfulness still need a human read.</p>
+<table>
+<tr><th>Run</th><th>Auto-checks passed</th><th>What failed, and what I changed</th></tr>
+<tr><td>v3 (prompt haq-v3)</td><td>63 / 65</td><td><b>T01</b>: called a deposit dispute a "property matter" and sent the user to a lawyer (over-escalation). <b>T06</b>: cheque bounce gave the 30-day notice deadline but not the 15-day payment window in the first reply. Also, drafts were written "on behalf of my client" as an advocate. → v4 prompt: the property red flag means ownership/title only; drafts are written in the person's own name.</td></tr>
+<tr><td>v4</td><td>63 / 65</td><td>T01 still escalated, now saying a lawyer is needed "<i>if</i> it goes to court"; the model's yes/no flag mixes <i>now</i> with <i>later</i>. → v5: escalation is decided in <b>code</b> (red flags or an out-of-scope topic). The model's conditional flag becomes a soft "lawyer only if it goes to court" note. I also added a rule to give the full deadline chain in the first reply for cheque, fraud and notice cases.</td></tr>
+<tr><td>v5</td><td>64 / 65</td><td>T06 fixed. T01 still escalated, and this time it was <b>my</b> bug: the code red-flag for inheritance matched the word <i>"will"</i> in "he <b>will</b> deduct painting charges". → v6: the rule matches "last will / testament / probate" instead, with 2 new regression tests (22/22 unit tests).</td></tr>
+<tr><td><b>v6 (final)</b></td><td><b>65 / 65</b></td><td>T01 no longer escalates, and its legal notice is written in the person's own voice. T06 opens with the full chain: notice within 30 days (it computed "by 2 December"), 15 days to pay, then 1 month to file. 25 calls for the whole suite. The checks verify behaviour, not wisdom: tone, legal accuracy and Hindi/Tamil quality still need a human read of the transcripts (ideally a lawyer and a native speaker).</td></tr>
+</table>
+<p><b>Guard in action:</b> the hallucination bait got "I can't give court case names" and an answer from the KB, with 0 invented citations. In T03 the guard <b>removed two real sections</b> from the draft complaint (CPA s.35, how to file, and s.2(7), who is a consumer) because they aren't in the KB. That is conservative by design: dropping a true citation is cheap, while printing an invented one in a legal notice is harmful. The fix is to add it to the KB after checking it.</p>
+
+<h2>Where it fails / what it does not do</h2>
+<ul>
+<li><b>Only as good as the KB.</b> State rent-control laws, RERA, and labour rules for non-"workers" are not covered. Haq says so and hands off, but a real product needs a lawyer to own and refresh the KB (I'd review it quarterly and add date-stamped sources).</li>
+<li>Several detailed facts are marked <b>medium confidence</b> (Code on Wages s.17 / s.45, consumer fee and jurisdiction limits, the e-Jagriti portal name) and need a lawyer's sign-off before launch.</li>
+<li>The guard catches citation-shaped text, not wrong <i>plain-language</i> claims ("you'll surely get 18% interest"). The prompt forbids promising outcomes, but only a human audit catches that class of error.</li>
+<li>Voice input needs Chrome or Edge. It doesn't read photos of notices yet; the next step is a vision model that extracts the deadline, sender and amount from a photo of the notice.</li>
+<li>Model quality: the free Flash-Lite model is weaker at legal nuance than a frontier model. Swapping is one setting, and the safety layer works the same either way.</li>
+</ul>
+
+<h2>Scale, cost, and how I'd know it works</h2>
+<p><b>Cost:</b> a 6-turn conversation plus one draft is about 8 calls and ~35k tokens, roughly <b>₹0.05 at Flash-Lite prices</b>. With a frontier model (for drafts only) it is under ₹5. The guard and red flags are code, so they are free and deterministic. <b>Human in the loop:</b> a lawyer audits a weekly random sample of transcripts and every guard removal, and approves KB changes. <b>Success metrics:</b> (1) <b>harmful-advice rate</b> from the lawyer audit, target 0 (invented law, wrong deadline, missed hand-off); (2) <b>action rate</b>: share of users who download a draft or call a helpline; (3) a 30-day follow-up asking "did you get your money back?"; (4) precision and recall of the lawyer hand-off against the audit labels.</p>
+
+<h2>AI tools I used, and where they got it wrong</h2>
+<p><b>Claude Code</b> (Opus) as my pair-programmer for the engine, UI, test runner and deployment. <b>Gemini 3.5 Flash-Lite</b> (free tier) runs Haq itself. <b>Where AI got it wrong:</b> Gemini replied in Hinglish to an English speaker and pushed a plain deposit case to a lawyer. Both are now handled by code and prompt fixes, and both are caught by the tests. Claude's first patch to the language detector silently broke a regex (an escaped <code>\b</code> became a control character); the test run caught it and I fixed it. The knowledge base was drafted with Claude's help, but I never let it free-write law. Every entry is one plain rule with an official source link and a confidence label. The 8 "medium" entries are exactly the ones a lawyer must sign off before launch.</p>
+</body></html>

@@ -1,0 +1,91 @@
+{
+  "id": "T07-upi-fraud-hinglish",
+  "why": "Time-critical fraud: must give 1930 / cybercrime portal first",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v6",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "Kal raat mere account se UPI se 18,000 rupaye kat gaye, maine koi payment nahi kiya. Bank wale bol rahe hain wait karo.",
+      "reply": "Yeh toh bohot serious baat hai! Cyber fraud ya UPI fraud ke mamle mein time sabse important hota hai. Kyunki aapne abhi bataya, sabse pehle yeh deadline aur emergency steps follow kijiye:\n\n1. Turant **1930** helpline par call karke fraud report karein.\n2. **cybercrime.gov.in** portal par online complaint darj karein. Jitni jaldi report karenge, utna zyada chance hai ki paisa freeze ho sake.\n\nAapne bank ko call kab kiya tha, aur kya aapko koi complaint/ticket number mila hai? Aur kya aapke paas bank ka transaction message ya screenshot hai?",
+      "language": "hinglish",
+      "topic": "bank",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "lawyerLater": "",
+      "sources": [
+        "cyber-fraud"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "I have called 1930 / filed on cybercrime.gov.in",
+        "What proof should I keep ready?"
+      ]
+    }
+  ],
+  "draft": null,
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "bank",
+      "want": "bank"
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "hinglish",
+      "want": "hinglish"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin",
+      "want": "latin"
+    },
+    {
+      "id": "mentions_1930",
+      "ok": true,
+      "want": "1930"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    }
+  ],
+  "caseFile": {
+    "summary": "Unauthorized UPI transaction of Rs 18000 from account last night without user's consent.",
+    "person": "Account holder",
+    "other_side": "Bank / UPI platform",
+    "amount": "₹18,000",
+    "key_dates": [
+      {
+        "date": "Yesterday night",
+        "event": "Unauthorized UPI transaction occurred"
+      }
+    ],
+    "evidence_have": [],
+    "evidence_missing": [
+      "Bank SMS/transaction notification",
+      "Bank complaint ticket number"
+    ],
+    "goal": "Recover unauthorized deducted money",
+    "deadline_risks": [
+      "Immediate reporting needed to block/freeze transaction via 1930."
+    ]
+  }
+}

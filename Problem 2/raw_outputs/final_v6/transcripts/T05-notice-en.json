@@ -1,0 +1,112 @@
+{
+  "id": "T05-notice-en",
+  "why": "Explain a scary notice; must not say 'ignore it'; holding reply draft",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v6",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "I got a letter from a lawyer saying I owe Rs 80,000 to a finance company and must pay in 15 days or they will file a case. I never took any loan from them. What does this mean?",
+      "reply": "Namaste, I am Haq. You got a legal notice, and a notice with a deadline must never be ignored. A court summons or notice needs prompt action so the other side cannot claim things without your reply. Since you never took a loan, this might be a mistake or fraud.\n\nBecause this involves a legal notice and potential court case, you should consult a lawyer or get free legal aid. You can contact the District Legal Services Authority (DLSA) at your district court or call the NALSA helpline at 15100 if you need free help.\n\nTo understand better: when did you receive this notice, and do you have any documents from them?",
+      "language": "en",
+      "topic": "notice",
+      "stage": "intake",
+      "needsLawyer": true,
+      "lawyerReason": "You have received a legal notice demanding payment with a deadline, which requires professional legal advice to draft a proper reply.",
+      "lawyerLater": "",
+      "sources": [
+        "never-ignore",
+        "legal-aid"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "Contact NALSA (15100)",
+        "What date was the notice received?",
+        "How to reply to a wrong notice?"
+      ]
+    }
+  ],
+  "draft": {
+    "kind": "notice_reply",
+    "title": "Holding Reply to Legal Notice",
+    "document": "To,\n[ADVOCATE/SENDER'S NAME OR FINANCE COMPANY NAME]\n[SENDER'S ADDRESS]\n\nSubject: Interim reply to your notice dated [DATE OF NOTICE] regarding alleged loan account [LOAN ACCOUNT NUMBER/DETAILS]\n\nSir/Madam,\n\nI, [YOUR FULL NAME], am in receipt of your legal notice dated [DATE OF NOTICE] on [DATE YOU RECEIVED IT], demanding a sum of Rs. 80,000 on behalf of your client [FINANCE COMPANY NAME]. \n\nAt the outset, I categorically deny each and every allegation, claim, and demand made in your notice. I state that I have never availed of any loan from your client, nor have I signed any loan agreement or received any such amount. \n\nI am currently consulting my legal counsel and gathering my records to prepare a detailed and comprehensive response. In the meantime, please provide me with clear copies of the alleged loan agreement, KYC documents, bank account statements showing disbursement of the said amount, and any other documents relied upon by your client in this matter.\n\nThis letter is issued without prejudice to my rights and contentions.\n\nYours faithfully,\n\n[YOUR FULL NAME]\n[YOUR ADDRESS]\n[YOUR PHONE NUMBER]\n[YOUR EMAIL ADDRESS]",
+    "placeholders": [
+      "[ADVOCATE/SENDER'S NAME OR FINANCE COMPANY NAME]",
+      "[SENDER'S ADDRESS]",
+      "[DATE OF NOTICE]",
+      "[LOAN ACCOUNT NUMBER/DETAILS]",
+      "[YOUR FULL NAME]",
+      "[DATE YOU RECEIVED IT]",
+      "[FINANCE COMPANY NAME]",
+      "[YOUR ADDRESS]",
+      "[YOUR PHONE NUMBER]",
+      "[YOUR EMAIL ADDRESS]"
+    ],
+    "howToSend": "1. Print the holding reply and sign it. 2. Send it via Speed Post with acknowledgement due (AD) to the lawyer or finance company before the deadline expires. 3. Keep a copy of the letter, the postal receipt, and the tracking report safely as proof.",
+    "sources": [
+      "never-ignore",
+      "legal-notice"
+    ],
+    "guardRemoved": []
+  },
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "notice",
+      "want": "notice"
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "en",
+      "want": "en"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin",
+      "want": "latin"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    },
+    {
+      "id": "draft_uses_placeholders_not_invented_facts",
+      "ok": true,
+      "got": 10
+    }
+  ],
+  "caseFile": {
+    "summary": "Person received a lawyer's letter demanding Rs 80,000 for a finance company loan they claim they never took.",
+    "person": "Recipient of notice",
+    "other_side": "Finance company / lawyer",
+    "amount": "Rs 80,000",
+    "key_dates": [],
+    "evidence_have": [
+      "Legal notice/letter"
+    ],
+    "evidence_missing": [
+      "Loan agreement",
+      "Communication history"
+    ],
+    "goal": "Understand and respond to the notice for a loan not taken",
+    "deadline_risks": [
+      "15 days deadline mentioned in the notice"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+.env
+*.env
+node_modules/
+input_pack/
+
+# Local Netlify folder
+.netlify

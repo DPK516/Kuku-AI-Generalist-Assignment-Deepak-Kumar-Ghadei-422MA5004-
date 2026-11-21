@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Problem 3 — Continuity Guard</title><link rel="stylesheet" href="doc.css"></head><body>
+<h1>Problem 3 · Continuity Guard: catch name and voice drift before you render</h1>
+<div class="sub">AI Generalist assignment · solution doc (I built all three problems, as instructed by the placement cell; this is one of three docs)</div>
+<div class="links"><b>Prototype:</b> <a href="https://ai-generalist-prototypes.netlify.app/continuity.html">ai-generalist-prototypes.netlify.app/continuity.html</a> · <b>Raw outputs:</b> <code>raw_outputs/p3/</code> (rules-only and AI runs on all 50 episodes, unedited) · <b>Source:</b> <a href="https://ai-generalist-prototypes.netlify.app/downloads/source.zip">source.zip</a> · CLI: <code>node cli/continuity.mjs scripts.zip</code></div>
+
+<h2>The problem, who has it, and how I know it's real</h2>
+<p><b>Who:</b> the story/continuity editor who signs off a batch of AI-microdrama scripts before they go to AI video and voice generation. <b>One step:</b> the pre-render check. <b>One checkable output:</b> a list of continuity issues, each with episode and timestamp evidence, plus a canonical story bible for the pipeline.</p>
+<p><b>Evidence 1, viewers.</b> Animatic Media's <i>Microdrama audience report, Nov 2026</i> coded 2,630 public viewer posts from October 2026. <b>Plot logic</b> drew 116 complaints and <b>15 explicit quits, the most of any reason</b> (endings: 196 and 12). The AI flaws viewers named most were <b>look-alike faces (48)</b> and <b>voices, accents and mispronounced names (39)</b>. In September they were face drift between shots (69) and sudden voice changes (62). Dubbing problems: 11 complaints, <b>all 11 ended in a quit</b>.</p>
+<p><b>Evidence 2, Kuku's own pack.</b> I ran the tool on the 50 episodes of <i>I Married a Broken Soldier</i>. The Duke's estate is spelled <b>six ways</b> (Ashburton ×8, Ashbourne ×8, Ashburn ×6, Ashbury ×5, Ashburg ×4, Ashburgh ×4). The hero is "Alexander Ashburn" in Ep 42 and "Alexander Ashburton" in Ep 45. Clarissa becomes "Clarisse" in Ep 31. The sister speaks as <code>LADY IN GOLD GOWN</code> (Ep 1–3), then <code>CLARISSA</code>, then <code>LADY CLARISSA</code>. The hero has three labels, and the late mother's book has <b>seven names</b> (ledger, herbal ledger, remedy journal, little book…).</p>
+<p><b>Why this breaks AI shows specifically:</b> a generation pipeline takes the script literally. The speaker label picks the <b>voice</b> and the <b>face reference</b>, a spelling picks the <b>pronunciation and subtitles</b>, and a prop noun picks <b>what gets drawn</b>. Three labels for one hero means three chances of three voices. That is the same flaw viewers name most.</p>
+
+<h2>Why this over Problems 1 and 2</h2>
+<ul>
+<li><b>P2</b> is a good product, but it isn't Kuku's business.</li>
+<li><b>P1 brings viewers in; this keeps them.</b> Plot logic and name/voice drift are where viewers explicitly quit, so every acquired viewer who leaves at Ep 5 is wasted promo spend.</li>
+<li><b>Cheapest fix point.</b> A rename in the script costs seconds. The same error after rendering means re-generating shots and re-dubbing lines, across 50+ episodes, for every show, every week.</li>
+<li><b>Honest counterpoint:</b> endings are the #1 complaint and this tool does nothing for them. P1 has the clearer short-term revenue link. I built all three; if I had to pick one for Kuku to own, it would be this one.</li>
+</ul>
+
+<h2>How it works</h2>
+<div class="flow">
+<div><b>Rules (code)</b>Clusters near-identical proper nouns; real names only (capitalised mid-sentence, never used in lowercase). Groups speaker labels for one person, and knows LADY X / LORD X are a couple.</div>
+<div class="ai"><b>Who is "LADY IN GOLD GOWN"? (AI)</b>A small, scoped question per unnamed label, showing only the episodes where it speaks.</div>
+<div><b>Verify (code)</b>The AI's quote must exist in the script. <b>Two labels that speak in the same scene can't be one person</b>; this rule blocked a wrong "Dowager Duchess = Catherine" merge.</div>
+<div class="ai"><b>Props + logic (AI)</b>Groups prop names that are one object; a fact ledger per 10 episodes, then contradictions.</div>
+<div><b>Bible (code)</b>Canonical label → all aliases, places and objects. Built from verified clusters, not free text.</div>
+</div>
+<p class="small">Design lesson: my first version asked the model for everything in one 150K-character reconcile call. It duplicated the rule findings and produced a story bible with wrong identities (it mapped "THE FORMER GROOM" to the hero). Splitting the work into small, verifiable questions fixed most of that.</p>
+
+<h2>Results on the 50-episode pack</h2>
+<p><b>Rules only</b> (0.1s, free): 6 issues. <b>Rules + AI</b> (Gemini 3.5 Flash-Lite, 28 calls, 155s): 16 issues, every one with episode, beat and timestamp evidence that was found in the script. Each issue was then <b>checked by hand</b> against the scripts:</p>
+<table>
+<tr><th>Found by</th><th>Issues</th><th>Real</th><th>Wrong</th><th>Unsure</th><th>Examples</th></tr>
+<tr><td>Rules (names, labels)</td><td>5</td><td>4</td><td>0</td><td>1</td><td>6 spellings of the estate; Clarissa/"Clarisse" (Ep 31); JULIANA vs LADY JULIANA (462 lines); Ashworth/Ashwood = maybe two places</td></tr>
+<tr><td>AI label merge + same-scene check</td><td>8</td><td>5</td><td>2</td><td>1</td><td>✅ LADY IN GOLD GOWN = CLARISSA, THE FORMER GROOM = GERALD, MAID = PRUDENCE; ❌ BLOND NOBLEMAN = Lord Harrington</td></tr>
+<tr><td>AI prop grouping</td><td>1</td><td>1</td><td>0</td><td>0</td><td>The mother's book under 7 names (ledger, herbal ledger, remedy journal, little book…)</td></tr>
+<tr><td>AI story-logic</td><td>2</td><td>0</td><td>2</td><td>0</td><td>Restated the Clarisse typo as a "plot conflict"; a "possession contradiction" the evidence doesn't show</td></tr>
+<tr><td><b>Total</b></td><td><b>16</b></td><td><b>10</b></td><td><b>4</b></td><td><b>2</b></td><td><b>Precision ≈ 63% (71% excluding unsure).</b> The same-scene rule blocked "Dowager Duchess = Catherine" in the previous run. In this run it blocked "NOBLEWOMAN = Catherine": true for Ep 24, but the generic label is reused for another woman in Ep 41. A generic label reused for different characters is itself a pipeline risk the tool should flag next.</td></tr>
+</table>
+<p><b>Known misses (recall):</b> the hero's surname also appears as "Ashwin" (Ep 39; missed because my clustering requires the same first 4 letters). "ALEXANDER'S MOTHER" was not merged with DOWAGER DUCHESS (the model called her a new character). And the 2nd bearded label was merged with Alexander in one run but not the next: the AI is not fully deterministic between runs.</p>
+
+<h2>Where it fails</h2>
+<ul>
+<li><b>A real quote isn't proof.</b> The model justified "BLOND NOBLEMAN = Lord Harrington" with a quote that exists but doesn't prove it. The same-scene rule can't help because they never share a scene. The label may even be reused for two different characters (Ep 2/9 vs Ep 27–44). Next step: a second, independent "does this quote prove X is Y?" check, and flagging labels reused far apart.</li>
+<li><b>Spelling clusters need a human:</b> Ashworth Manor (Ep 12) vs Ashwood (Ep 35) may be two places. The tool says "check" rather than auto-fixing.</li>
+<li><b>Script only.</b> It can't see the rendered video, so a correct script can still render two faces. The story bible it outputs is what the casting and reference-image step should consume.</li>
+<li><b>Logic contradictions</b> are the weakest part with the free Lite model. It finds a few, and code marks any it can't back with two quotes from different beats as unverified. A stronger model is a one-line swap.</li>
+</ul>
+
+<h2>How I'd know it worked with a real team</h2>
+<ul>
+<li><b>Editor acceptance rate</b> (the "Real issue / Not an issue" buttons): target ≥ 70%. Below that, editors stop reading.</li>
+<li><b>Issues fixed before render per show</b>, and <b>re-render / re-dub minutes avoided</b> (track how many shot re-generations were caused by continuity errors before and after).</li>
+<li><b>Audience signal:</b> share of comments mentioning names, voices or "different actress", and the episode-to-episode drop-off at episodes where a label or name drifted, compared on shows checked vs not checked.</li>
+</ul>
+
+<h2>Scale and cost</h2>
+<p>Rules run in 0.1s for 50 episodes at zero cost. The AI pass is 28 Lite calls (~200k tokens) per 50-episode show, <b>≈ $0.03</b> at Flash-Lite-class prices, or under $1 with a frontier model. It can run automatically whenever a batch of scripts lands, with the report waiting for the editor. The story bible persists per show, so later batches only check new episodes against it.</p>
+
+<h2>AI tools I used, and where they got it wrong</h2>
+<p><b>Claude Code</b> (Opus) built the engine and UI with me; <b>Gemini 3.5 Flash-Lite</b> runs the AI passes; I used Chrome to research viewer complaints. <b>Where AI got it wrong:</b> Gemini's one-shot story bible confidently mixed up identities, and later a label merge was justified by a real but irrelevant quote. Claude's first name-variant rule flagged ordinary words ("Brittle/British", "Throw/Thrown") as name drift until I added the proper-noun filters. Every AI claim in the report carries evidence that code has checked against the script.</p>
+</body></html>

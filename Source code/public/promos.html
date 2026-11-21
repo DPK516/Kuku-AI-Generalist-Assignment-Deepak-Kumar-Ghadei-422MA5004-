@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Promo Finder</title>
+<meta name="description" content="Reads microdrama screenplays and finds ranked 20–60s promo clips with hook, cliffhanger and exact timestamps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .promo { display: grid; grid-template-columns: 56px 1fr; gap: 14px; }
+  .rank { font: 600 26px var(--serif); color: var(--ink-3); text-align: center; }
+  .rank small { display: block; font: 500 11px var(--sans); color: var(--accent); }
+  .segs { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0 10px; }
+  .seg { font: 12.5px var(--mono); background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 3px 8px; }
+  .hc { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0; }
+  .hc > div { background: var(--surface-2); border-radius: 10px; padding: 8px 10px; font-size: 14px; }
+  .hc b { display: block; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 2px; }
+  .scores { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; font-size: 12px; color: var(--ink-2); margin: 8px 0; }
+  .promo.approved { outline: 2px solid var(--good); }
+  .promo.rejected { opacity: .55; }
+  .timeline { display: grid; gap: 3px; }
+  .tl-row { display: grid; grid-template-columns: 38px 1fr; gap: 8px; align-items: center; font: 11px var(--mono); color: var(--ink-3); }
+  .tl-track { position: relative; height: 12px; background: var(--surface-2); border-radius: 4px; }
+  .tl-track i { position: absolute; top: 0; bottom: 0; background: var(--accent); opacity: .35; border-radius: 3px; cursor: pointer; }
+  .tl-track i.top { opacity: 1; }
+  .post-list { counter-reset: p; padding: 0; margin: 0; list-style: none; display: grid; gap: 8px; }
+  .post-list li { display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: start; font-size: 14px; }
+  .post-list li::before { counter-increment: p; content: counter(p); font: 600 18px var(--serif); color: var(--accent); }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  @media (max-width: 640px) { .hc { grid-template-columns: 1fr; } .scores { grid-template-columns: repeat(2, 1fr); } .promo { grid-template-columns: 1fr; } .rank { text-align: left; } }
+</style>
+</head>
+<body>
+<div id="hdr"></div>
+<main class="wrap">
+  <section class="hero">
+    <span class="pill accent">Problem 1</span>
+    <h1>Promo Finder</h1>
+    <p class="lede">Drop in a show's screenplays. The tool finds 20–60 second promo clips that open on a hook and cut on a cliffhanger, gives exact timestamps for every segment, and ranks the clips by which to post first. An editor then approves them and exports straight to a timeline.</p>
+  </section>
+
+  <section class="grid two">
+    <div class="card stack">
+      <h2>1 · Scripts</h2>
+      <label class="drop" id="drop" tabindex="0">
+        <strong>Drop the input-pack .zip or episode .txt files</strong>
+        <span class="muted">or click to choose. Files are parsed in your browser and never uploaded to this site.</span>
+        <input id="file" type="file" multiple accept=".zip,.txt" class="sr">
+      </label>
+      <div id="parsed" class="muted"></div>
+      <div class="row"><button class="ghost small" id="openJson">Open a saved results .json</button><input id="jsonFile" type="file" accept=".json" class="sr"></div>
+    </div>
+    <div class="card stack">
+      <h2>2 · Model</h2>
+      <div id="model"></div>
+      <div class="row">
+        <label>Promos / episode <input id="perEp" type="number" min="1" max="5" value="3" style="width:80px"></label>
+        <label>Cross-episode montages <input id="mont" type="number" min="0" max="10" value="5" style="width:80px"></label>
+        <label>Episodes <input id="range" placeholder="all  (e.g. 1-10)" style="width:120px"></label>
+        <label style="align-self:end"><span><input id="critic" type="checkbox" checked> Blind critic pass</span></label>
+      </div>
+      <div class="row"><button class="primary" id="run" disabled>Find promos</button><span class="faint" id="est"></span></div>
+      <div class="progress"><i id="bar"></i></div>
+      <div class="log" id="log"></div>
+    </div>
+  </section>
+
+  <section id="results" class="hidden stack" style="margin-top:22px">
+    <div class="stats" id="stats"></div>
+    <div class="grid two">
+      <div class="card"><h2>Post these first</h2><p class="faint" style="font-size:13px">Ranked by score, then spread out so week one isn't five cuts of the same scene. Only clips that pass the hard checks are listed.</p><ol class="post-list" id="postList"></ol></div>
+      <div class="card"><h2>Where the promos are</h2><p class="faint" style="font-size:13px">Each row is one episode. Solid blocks are the top 10. Click a block to jump to that promo.</p><div class="timeline" id="timeline"></div></div>
+    </div>
+    <div class="card">
+      <div class="filters">
+        <h2 style="margin:0">All promos</h2><span class="spacer"></span>
+        <select id="fShow"><option value="all">All</option><option value="pass">Passing checks</option><option value="flag">Flagged for review</option><option value="approved">Approved</option><option value="montage">Montages</option></select>
+        <button class="small" data-x="csv">CSV</button><button class="small" data-x="md">Report .md</button><button class="small" data-x="json">JSON</button><button class="small" data-x="edl" title="CMX3600 EDL of approved promos (or top 10)">EDL for editor</button>
+      </div>
+    </div>
+    <div id="list" class="stack"></div>
+  </section>
+
+  <section class="card" style="margin-top:22px">
+    <h2>How it works</h2>
+    <div class="grid three" style="font-size:14px">
+      <div><b>Parse (code)</b><p class="muted">Every timestamped camera, action, sound and dialogue line becomes a numbered "beat". Fully deterministic.</p></div>
+      <div><b>Rules (code)</b><p class="muted">Keyword and tone signals score each beat for hook and cliffhanger strength, then propose 20–60s windows. Free, instant, and works with no key.</p></div>
+      <div><b>Judge (AI)</b><p class="muted">The model reads each episode and picks promos by <em>beat number</em>, never raw timestamps. Code converts beats to times and snaps cuts so no line is cut mid-word.</p></div>
+      <div><b>Montage (AI)</b><p class="muted">A second pass joins the strongest moments from different episodes into stitched promos.</p></div>
+      <div><b>Validate (code)</b><p class="muted">Hard checks: length, something lands in the first 3s, clean in/out, inside episode bounds. Soft checks are keyword signals shown as warnings.</p></div>
+      <div><b>Blind critic (AI) + human</b><p class="muted">A second prompt sees only the clip, like a stranger scrolling past. Where it disagrees with the judge, the clip is flagged for the editor, who approves or rejects.</p></div>
+    </div>
+  </section>
+  <p class="footer">Problem 1 of the AI Generalist assignment. Scripts are processed in your browser. With an AI provider, condensed dialogue and actions go only to that provider.</p>
+</main>
+<script type="module" src="js/promos/app.js"></script>
+</body>
+</html>

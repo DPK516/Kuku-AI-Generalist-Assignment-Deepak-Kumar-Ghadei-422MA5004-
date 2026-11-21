@@ -1,0 +1,63 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Problem 1 — Promo Finder</title><link rel="stylesheet" href="doc.css"></head><body>
+<h1>Problem 1 · Promo Finder: from 50 screenplays to a ranked promo list</h1>
+<div class="sub">AI Generalist assignment · solution doc (I built all three problems, as instructed by the placement cell; this is one of three docs)</div>
+<div class="links"><b>Prototype:</b> <a href="https://ai-generalist-prototypes.netlify.app/promos.html">ai-generalist-prototypes.netlify.app/promos.html</a> (drop the input-pack .zip; works without a key) · <b>Raw outputs:</b> <code>raw_outputs/p1/</code> (all runs on all 50 episodes, unedited: JSON, CSV, Markdown report, EDL) · <b>Source:</b> <a href="https://ai-generalist-prototypes.netlify.app/downloads/source.zip">source.zip</a> · CLI: <code>node cli/promos.mjs scripts.zip</code></div>
+
+<h2>The job, and my assumptions</h2>
+<p>Today an editor watches about 100 minutes per show to pick promos. The tool reads the timestamped screenplays and hands the editor a <b>ranked shortlist of ready-to-cut clips</b>: segment timestamps, the hook, the cliffhanger, why each works, and an approve/reject button. Approved clips export as an <b>EDL that drops straight onto a Premiere/Resolve timeline</b>. The editor's job moves from finding clips to reviewing them, roughly 10 minutes per show.</p>
+<ul>
+<li><b>Script time = cut time.</b> Screenplay timestamps match the final episode, and the tool picks from text only (no video or audio). Acting, music and visuals can make a "weak" script beat great, or the reverse.</li>
+<li><b>Funnel:</b> a viewer who taps a promo starts at Ep 1, and the paywall sits around Ep 10. Clips from early episodes match what they watch first, so they get a small ranking bonus, and late-series twists are penalised as spoilers.</li>
+<li><b>Promo rules from the brief:</b> 20–60s; something in the first 3s; cut on an unresolved beat; understandable cold. A promo is preferably one continuous stretch; stitched and cross-episode montages are allowed but marked as such.</li>
+</ul>
+
+<h2>How it works: code where correctness matters, AI where judgement matters</h2>
+<div class="flow">
+<div><b>1 · Parse (code)</b>Each of 3,727 camera, action, sound and dialogue lines becomes a numbered beat with exact times. 50/50 episodes parse with 0 errors.</div>
+<div><b>2 · Rules (code)</b>Hook and cliffhanger signals (tone tags, shock words, slaps, sound stings, episode ends) → candidate 20–60s windows. Free and instant, and also the fallback.</div>
+<div class="ai"><b>3 · Judge (AI)</b>Per episode: reads the condensed script and the rule candidates, picks 3 promos <b>by beat number</b>, and writes the hook, cliff, why, scores, trope, spoiler risk and weak spot.</div>
+<div><b>4 · Validate (code)</b>Beat numbers → times, so <b>timestamps can't be hallucinated</b>. Cuts are snapped so no line is cut mid-word, lengths are repaired to 20–60s, and hard checks run.</div>
+<div class="ai"><b>5 · Montage + critic (AI)</b>Cross-episode montages, then a <b>blind critic</b> that sees only the clip, as a stranger scrolling past would.</div>
+<div><b>6 · Rank (code)</b>Score = 60% judge (hook 30 / cliff 30 / standalone 25 / emotion 15) + 40% critic + funnel − spoiler − failed checks. The top 10 are spread out so they aren't all the same scene.</div>
+</div>
+<p class="small">The model is one setting (Gemini, Claude, GPT, Groq, OpenRouter, Ollama or any OpenAI-compatible gateway); <code>--strong-model</code> sends only the montage and critic calls to a bigger model. All raw outputs were made on the free Gemini tier.</p>
+
+<h2>Results on all 50 episodes</h2>
+<p><b>Final AI run</b> (Gemini 3.5 Flash-Lite, free tier): <b>112 promos</b> across all 50 episodes in 357s, 65 calls, 214k input + 36k output tokens. <b>106/112 pass every hard check</b>; the 6 that fail (too short) are kept but never recommended. Median length is 34s, 26 were auto-repaired (trimmed or extended to fit 20–60s), and 5 are cross-episode montages. The <b>rules-only</b> baseline finds 97 candidates in 0.1s for free. <b>Post these first</b> (full list of 10 with reasons in <code>promos.md</code>):</p>
+<table>
+<tr><th>#</th><th>Episode · segments</th><th>Hook (0–3s)</th><th>Cliffhanger (the cut)</th><th>Why it works</th></tr>
+<tr><td>1</td><td>Ep 3 · 01:09.60–01:49.00 (39s)</td><td>The stranger: "Take your hands off her."</td><td>He kneels with a ring; the congregation gasps</td><td>Protective hero plus a public proposal flips the humiliation</td></tr>
+<tr><td>2</td><td>Ep 11 00:29.00–00:51.00 + Ep 41 00:57.70–01:33.70 (58s, montage)</td><td>Gerald: "You married a beggar!"</td><td>The cathedral doors explode</td><td>A false accusation builds anger, then an explosive payoff</td></tr>
+<tr><td>3</td><td>Ep 18 · 00:05.70–00:28.90 (23s)</td><td>She wakes to fire under the door: "Alexander!"</td><td>He crashes through the burning window carrying her</td><td>Life-or-death from the first second</td></tr>
+<tr><td>4</td><td>Ep 5 · 00:54.20–01:14.70 (21s)</td><td>Stepmother flings her dead mother's book into the mud</td><td>A scarred stranger kneels to pick it up</td><td>Instant cruelty; we know who to hate</td></tr>
+<tr><td>5</td><td>Ep 32 · 01:56.90–02:34.38 (37s)</td><td>Catherine: "Silence! Silence!"</td><td>A red-hot iron stops an inch from her eye</td><td>Pure peril; the critic flags it as less clear without context</td></tr>
+</table>
+<p class="small"><b>Why this order:</b> high hook, cliffhanger and stand-alone scores from both the judge and the blind critic, early episodes preferred (where a new viewer lands), late twists pushed down, and no two picks from the same scene or the same trope back to back.</p>
+
+<h2>Quality check: how I know it's good, and where it picks badly</h2>
+<p><b>Gold set.</b> 12 must-have moments were picked by reading the scripts, in 7 episodes spread from Ep 1 to Ep 45 (<code>tests/promo_gold.json</code>). <code>cli/eval_promos.mjs</code> scores any run against them:</p>
+<table>
+<tr><th>Run (all on the full 50 episodes)</th><th>Gold moments found</th><th>…in that episode's top 3</th><th>Starts ≤ 3s from my cut</th></tr>
+<tr><td>Rules only (keywords, no AI)</td><td>11 / 12</td><td>11 / 12</td><td>2 / 11</td></tr>
+<tr><td>AI run 1 (critic reviewed only the top 30, a bug)</td><td>12 / 12</td><td>11 / 12</td><td>4 / 12</td></tr>
+<tr><td>AI run 2 (a parser bug silently dropped Ep 1 and Ep 5)</td><td>9 / 12</td><td>9 / 12</td><td>3 / 9</td></tr>
+<tr><td><b>AI final</b> (critic on all 112 promos, fallbacks)</td><td><b>10 / 12</b></td><td><b>10 / 12</b></td><td>2 / 10</td></tr>
+</table>
+<p class="small">A moment is "found" if a promo's overlap with it is ≥ 50% of the shorter of the two. <b>Honest reading:</b> on <i>recall</i> the keyword rules are already strong, because their windows are long and loose. What the AI adds is tighter cuts, the hook/cliff/why write-up, montages and spoiler awareness, and it is noisy run to run (12 vs 10 found). The final run missed the Ep 3 proposal and the Ep 45 "You're the Duke?" reveal; the second is arguably right to skip for a top-of-funnel ad. <b>Score spread:</b> the judge's scores barely vary (sd 0.055, hook always 7–9), while the critic's vary twice as much (sd 0.11). So the critic, not the judge, does most of the ranking.</p>
+<p><b>Where it picks badly (from reading the outputs):</b></p>
+<ul>
+<li><b>Self-scores are inflated.</b> In run 1 the judge gave almost every clip 9–10. A calibration instruction ("5–6 is ordinary") only moved that to 7–9, so its scores still barely rank anything. In run 1 it rated a quiet hearth scene from Ep 6 highly; that clip opens mid-thought ("But not because of you.") and ends resolved. The blind critic is far stricter and rated it "skip", so it now ranks near the bottom. That is why the critic gets 40% of the score.</li>
+<li><b>Hard checks can't see quality.</b> "Something happens in the first 3s" passes a soft line just as well as a slap. That judgement belongs to the critic and the editor.</li>
+<li><b>Peril without context.</b> #5 (Ep 32, the red-hot iron) is gripping, but the critic scored it 4/10 for clarity: a stranger doesn't know who Catherine is or why she hates Juliana. A good editor would open on the line that sets up the rivalry; the tool only flags it.</li>
+<li><b>Start points differ from an editor's.</b> Found moments often start a few seconds before or after where I'd cut. The output is a shortlist with times to trim, not a final edit.</li>
+<li><b>Spoilers.</b> Strong late clips (the villain reduced to a scullery maid, Ep 47) give away payoffs; they're marked "spoiler" and pushed down, but a human should decide.</li>
+<li><b>Silent failures.</b> One run silently dropped every promo for Ep 1 and Ep 5 because the model used a different JSON key. I fixed the parser and added a rule: an episode with no usable AI picks falls back to the rule picks and is logged. The earlier runs are kept in the raw outputs to show this.</li>
+</ul>
+
+<h2>Scale and cost</h2>
+<p><b>Per 50-episode show:</b> 65 Lite calls and ~250k tokens, <b>≈ $0.04 at Flash-Lite-class prices</b>, or about $1–2 with a frontier model on every call (less with <code>--strong-model</code> only on the montage and critic calls). It runs in about 6 minutes on the free tier (15 requests per minute); with paid limits episodes run in parallel, in about 1–2 minutes. The rules mode costs nothing and runs in 0.1s. <b>Human in the loop:</b> the editor approves, trims and rejects; that is the quality gate and the training signal.</p>
+<p><b>How I'd know it worked:</b> (1) <b>editor acceptance</b> of the top 10 and minutes spent per show; (2) <b>promo performance</b> (3-second hold rate, CTR, installs per $) of tool-picked versus hand-picked promos on the same show; (3) over time, learn the ranking weights from which posted promos actually performed, replacing my hand-set 30/30/25/15.</p>
+
+<h2>AI tools I used, and where they got it wrong</h2>
+<p><b>Claude Code</b> (Opus) as pair-programmer for the parser, pipeline, UI and deployment; <b>Gemini 3.5 Flash-Lite</b> (free) runs the judge, montage and critic. <b>Where AI got it wrong:</b> besides the inflated scores and the silent drop above, Claude first wired the critic to review only the top 30. Because the critic is stricter than the judge, that pushed the <i>reviewed</i> promos below unreviewed ones, and the "post first" list started at P011. It was caught by reading the output, and the critic now reviews every promo, with a retry.</p>
+</body></html>

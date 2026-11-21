@@ -1,0 +1,153 @@
+{
+  "id": "T03-refund-hindi",
+  "why": "Hindi in Devanagari, e-commerce refund, consumer complaint draft",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v3",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "मैंने एक ऑनलाइन शॉपिंग वेबसाइट से 12,000 रुपये का फ़ोन मंगवाया था, वह खराब निकला। मैंने रिटर्न कर दिया लेकिन 40 दिन हो गए, रिफंड नहीं आया।",
+      "reply": "नमस्ते! मैं হক (Haq) हूँ। मैं कोई वकील नहीं हूँ, लेकिन आम पैसों के मामलों में आपकी मदद कर सकता हूँ।\n\nयह बहुत परेशानी की बात है कि 40 दिन बीत जाने के बाद भी आपको 12,000 रुपये का रिफंड नहीं मिला।\n\nक्या आपके पास ऑर्डर नंबर, रिफंड पिकअप की रसीद या कंपनी की चैट/ईमेल का कोई सबूत है?",
+      "language": "hi",
+      "topic": "consumer",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "sources": [
+        "cpa-consumer"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "हाँ, सबूत है",
+        "क्या करना चाहिए?"
+      ]
+    },
+    {
+      "user": "मेरे पास ऑर्डर आईडी, रिटर्न पिकअप की रसीद और कस्टमर केयर के ईमेल हैं। उन्होंने बस 'प्रोसेस हो रहा है' बोला।",
+      "reply": "यह बहुत अच्छी बात है कि आपके पास ऑर्डर आईडी, पिकअप रसीद और ईमेल के सबूत हैं।\n\nआप कंज्यूमर प्रोटेक्शन एक्ट के तहत कंज्यूमर हैं। आपके पास आगे बढ़ने के ये रास्ते हैं:\n1. **grievance officer**: सबसे पहले कंपनी के ग्रीवांस ऑफिसर को ई-मेल लिखकर याद दिलाएं। ई-कॉमर्स नियमों के मुताबिक उन्हें 48 घंटे में जवाब देना चाहिए और एक महीने में समाधान करना चाहिए।\n2. **National Consumer Helpline**: अगर कंपनी बात न सुने, तो नेशनल कंज्यूमर हेल्पलाइन (1915 या consumerhelpline.gov.in) पर मुफ्त शिकायत दर्ज करें।\n3. **Consumer Commission**: आप जिला उपभोक्ता आयोग में ई-दाखिला पोर्टल पर ऑनलाइन शिकायत भी कर सकते हैं। समय सीमा 2 साल है।\n\nक्या आप कंपनी के ग्रीवांस ऑफिसर को भेजने के लिए शिकायत का एक ड्राफ्ट तैयार करना चाहते हैं?",
+      "language": "hi",
+      "topic": "consumer",
+      "stage": "options",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "sources": [
+        "cpa-consumer",
+        "cpa-limitation",
+        "cpa-efile",
+        "nch",
+        "ecom-rules"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "शिकायत का ड्राफ्ट तैयार करें",
+        "NCH पर शिकायत कैसे करें?"
+      ]
+    }
+  ],
+  "draft": {
+    "kind": "consumer_complaint",
+    "title": "Consumer Complaint before the District Consumer Disputes Redressal Commission",
+    "document": "BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION, [DISTRICT NAME]\n\nConsumer Complaint No. ________ of 20[YEAR]\n\nIN THE MATTER OF:\n[CONSUMER'S FULL NAME]\n[CONSUMER'S FULL ADDRESS]\n... Complainant\n\nVERSUS\n[ONLINE SHOPPING WEBSITE COMPANY NAME],\nThrough its Grievance Officer / Managing Director,\n[COMPANY'S REGISTERED ADDRESS]\n... Opposite Party\n\nCONSUMER COMPLAINT UNDER [unverified reference removed]\n\nMOSTLY RESPECTFULLY SHOWETH:\n\n1. FACTS OF THE CASE:\nThat the Complainant had purchased a mobile phone worth Rs 12,000 (Rupees Twelve Thousand only) from the Opposite Party's online shopping website vide Order ID [ORDER ID]. Upon delivery, the said product was found to be defective. The Complainant immediately raised a return request, and the defective phone was successfully picked up and returned to the Opposite Party on [DATE OF RETURN PICKUP / 40 days ago], as evidenced by the return pickup receipt.\n\n2. DEFICIENCY IN SERVICE AND UNFAIR TRADE PRACTICE:\nThat despite 40 days having elapsed since the successful return of the defective phone, the Opposite Party has failed and neglected to issue the refund of Rs 12,000 to the Complainant. The Complainant has repeatedly followed up with the customer care via emails, wherein the Opposite Party has merely responded that the matter is \"processing\". Withholding the legitimate refund for an unreasonably prolonged period amounts to a clear deficiency in service and an unfair trade practice under the Consumer Protection Act, 2019.\n\n3. JURISDICTION:\nThis Hon’ble Commission has the territorial and pecuniary jurisdiction to entertain, try, and adjudicate the present complaint as the value paid does not exceed ₹50 lakh and the Complainant resides/works within the territorial jurisdiction of this Commission.\n\n4. LIMITATION:\nThe present complaint is being filed well within the limitation period of 2 years from the date of the cause of action, as prescribed under Section 69 of the Consumer Protection Act, 2019.\n\n5. RELIEF SOUGHT:\nIn view of the facts and circumstances mentioned above, the Complainant prays that this Hon'ble Commission may be pleased to:\n  a) Direct the Opposite Party to immediately refund the principal amount of Rs 12,000 (Rupees Twelve Thousand only) along with appropriate interest;\n  b) Award suitable compensation for mental agony, harassment, and deficiency in service; and\n  c) Grant litigation costs in favor of the Complainant.\n\nVERIFICATION:\nVerified at [CITY] on this [DAY] day of [MONTH], 20[YEAR], that the contents of paragraphs 1 to 5 are true and correct to the best of my knowledge and belief, and nothing material has been concealed therefrom.\n\n[SIGNATURE OF THE COMPLAINANT]\n[CONSUMER'S FULL NAME]",
+    "placeholders": [
+      "[DISTRICT NAME]",
+      "[YEAR]",
+      "[CONSUMER'S FULL NAME]",
+      "[CONSUMER'S FULL ADDRESS]",
+      "[ONLINE SHOPPING WEBSITE COMPANY NAME]",
+      "[COMPANY'S REGISTERED ADDRESS]",
+      "[ORDER ID]",
+      "[DATE OF RETURN PICKUP / 40 days ago]",
+      "[CITY]",
+      "[DAY]",
+      "[MONTH]",
+      "[SIGNATURE OF THE COMPLAINANT]"
+    ],
+    "howToSend": "1. Register and log in to the government e-filing portal (e-Jagriti). 2. Upload this complaint along with supporting documents (Order ID, Return pickup receipt, and Customer care emails). 3. Pay the applicable fee (nil for small claims up to ₹5 lakh) and keep the e-filing acknowledgement as proof.",
+    "sources": [
+      "cpa-consumer",
+      "cpa-limitation",
+      "cpa-where",
+      "cpa-limits",
+      "cpa-efile"
+    ],
+    "guardRemoved": [
+      {
+        "ref": "SECTION 35 OF THE CONSUMER PROTECTION ACT, 2019",
+        "why": "section not in knowledge base for CONSUMER PROTECTION ACT, 2019"
+      }
+    ]
+  },
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "consumer",
+      "want": "consumer"
+    },
+    {
+      "id": "needs_lawyer",
+      "ok": true,
+      "got": false,
+      "want": false
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "hi,hi",
+      "want": "hi"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "devanagari,devanagari",
+      "want": "devanagari"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 1
+    },
+    {
+      "id": "draft_uses_placeholders_not_invented_facts",
+      "ok": true,
+      "got": 12
+    }
+  ],
+  "caseFile": {
+    "summary": "Online shopping website sent a defective phone worth Rs 12,000. Returned it, but refund not received after 40 days.",
+    "person": "Customer",
+    "other_side": "Online shopping website",
+    "amount": "Rs 12,000",
+    "key_dates": [
+      {
+        "date": "40 days ago",
+        "event": "Returned the defective phone"
+      }
+    ],
+    "evidence_have": [
+      "Order ID",
+      "Return pickup receipt",
+      "Customer care emails"
+    ],
+    "evidence_missing": [],
+    "goal": "Get refund of Rs 12,000 for the defective phone",
+    "deadline_risks": []
+  }
+}

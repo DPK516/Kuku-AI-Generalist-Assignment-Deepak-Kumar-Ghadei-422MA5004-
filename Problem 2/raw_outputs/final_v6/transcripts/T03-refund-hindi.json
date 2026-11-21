@@ -1,0 +1,164 @@
+{
+  "id": "T03-refund-hindi",
+  "why": "Hindi in Devanagari, e-commerce refund, consumer complaint draft",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v6",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "मैंने एक ऑनलाइन शॉपिंग वेबसाइट से 12,000 रुपये का फ़ोन मंगवाया था, वह खराब निकला। मैंने रिटर्न कर दिया लेकिन 40 दिन हो गए, रिफंड नहीं आया।",
+      "reply": "नमस्ते, मैं हक हूँ। ऑनलाइन शॉपिंग में खराब सामान और रिफंड न मिलने पर आप कंज्यूमर (उपभोक्ता) हैं और इसके लिए कानून आपकी मदद करता है। \n\n40 दिन बीत चुके हैं, इसलिए सबसे पहले कंपनी के ग्रीवांस ऑफिसर (शिकायत अधिकारी) को शिकायत करें। ई-कॉमर्स नियमों के अनुसार उन्हें 48 घंटे में रसीद देनी होती है और 1 महीने में समस्या हल करनी होती है। अगर वहाँ बात न बने, तो आप नेशनल कंज्यूमर हेल्पलाइन (1915 या consumerhelpline.gov.in) पर फ्री शिकायत कर सकते हैं या कंज्यूमर कमीशन जा सकते हैं।\n\nआगे बढ़ने से पहले मुझे बताएं:\n1. क्या आपके पास ऑर्डर नंबर, पेमेंट रसीद या रिटर्न पिकअप की कोई पावती (slip) है?\n2. क्या आपने कंपनी के ग्रीवांस ऑफिसर से संपर्क किया था?",
+      "language": "hi",
+      "topic": "consumer",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "lawyerLater": "",
+      "sources": [
+        "cpa-consumer",
+        "nch",
+        "ecom-rules"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "शिकायत दर्ज करें (NCH 1915)",
+        "ग्रीवांस ऑफिसर को मेल लिखें",
+        "मेरे पास क्या सबूत हैं?"
+      ]
+    },
+    {
+      "user": "मेरे पास ऑर्डर आईडी, रिटर्न पिकअप की रसीद और कस्टमर केयर के ईमेल हैं। उन्होंने बस 'प्रोसेस हो रहा है' बोला।",
+      "reply": "यह बहुत अच्छी बात है कि आपके पास ऑर्डर आईडी, रिटर्न पिकअप की रसीद और ईमेल के सबूत मौजूद हैं। इन सबूतों के साथ आपके पास रिफंड पाने के लिए मजबूत रास्ते हैं।\n\nहम इस मामले में आगे बढ़ सकते हैं:\n1. सबसे पहले, वेबसाइट के ग्रीवांस ऑफिसर को एक लिखित शिकायत भेजें जिसमें स्पष्ट रूप से रिफंड देने को कहें。\n2. यदि वे फिर भी न सुनें, तो आप नेशनल कंज्यूमर हेल्पलाइन (1915 या consumerhelpline.gov.in) पर मुफ्त शिकायत दर्ज कर सकते हैं。\n3. इसके बाद, आप कंज्यूमर कमीशन (e-Jagriti पोर्टल) पर ऑनलाइन शिकायत कर सकते हैं। आपके पास शिकायत करने के लिए समस्या आने की तारीख से 2 साल का समय होता है।\n\nक्या आप ग्रीवांस ऑफिसर को भेजने के लिए शिकायत का ड्राफ्ट तैयार करना चाहते हैं?",
+      "language": "hi",
+      "topic": "consumer",
+      "stage": "options",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "lawyerLater": "",
+      "sources": [
+        "ecom-rules",
+        "nch",
+        "cpa-consumer",
+        "cpa-limitation",
+        "cpa-efile"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "शिकायत का ड्राफ्ट तैयार करें",
+        "नेशनल कंज्यूमर हेल्पलाइन की जानकारी चाहिए",
+        "कंज्यूमर कमीशन के बारे में बताएं"
+      ]
+    }
+  ],
+  "draft": {
+    "kind": "consumer_complaint",
+    "title": "Consumer Complaint before the District Consumer Disputes Redressal Commission",
+    "document": "BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION, [DISTRICT NAME]\n\nConsumer Complaint No. ______ of 20[YY]\n\nIN THE MATTER OF:\n\n[YOUR FULL NAME]\n[YOUR FULL ADDRESS]\n...Complainant\n\nVERSUS\n\n[ONLINE SHOPPING WEBSITE COMPANY NAME], \n[COMPANY'S REGISTERED OFFICE ADDRESS OR CUSTOMER CARE ADDRESS]\n...Opposite Party\n\nCOMPLAINT UNDER [unverified reference removed]\n\nMOST RESPECTFULLY SHOWETH:\n\n1. That the Complainant is an individual residing at the address given above within the territorial jurisdiction of this Hon’ble Commission, and is a \"consumer\" as defined under [unverified reference removed], having purchased goods for consideration from the Opposite Party.\n\n2. That the Opposite Party is an e-commerce platform engaged in the business of online retail and sale of various goods, including mobile phones, to consumers across India.\n\n3. That on [DATE OF PURCHASE], the Complainant purchased a mobile phone worth ₹12,000/- (Rupees Twelve Thousand Only) from the website/app of the Opposite Party vide Order ID [ORDER ID]. The Complainant paid the said amount online.\n\n4. That upon delivery, the mobile phone was found to be defective and not in working condition. Immediately upon discovering the defect, the Complainant raised a return request with the Opposite Party.\n\n5. That on [DATE OF RETURN PICKUP], the Opposite Party successfully picked up the defective phone from the Complainant's address, and the Complainant was provided with a return pickup slip, bearing [RETURN PICKUP SLIP NUMBER / DETAILS].\n\n6. That despite 40 days having elapsed since the return of the defective product, the Opposite Party has failed and neglected to refund the amount of ₹12,000/-. The Complainant has followed up multiple times via customer care emails, but has only received vague responses stating that the refund is \"processing\", amounting to a clear deficiency in service and unfair trade practice.\n\n7. That the cause of action for filing the present complaint arose on [DATE OF REFUND DELAY / EXPIRY OF PROMISED REFUND DATE] when 40 days passed without the refund being credited, and continues to subsist as the Opposite Party is withholding the Complainant's legitimate money.\n\n8. That the value of the goods paid is ₹12,000/-, and compensation claimed is within the pecuniary jurisdiction of this Hon’ble District Commission under Section 34 of the Consumer Protection Act, 2019. The Complainant resides within the local limits of this Commission's jurisdiction.\n\nRELIEF SOUGHT:\nIn view of the facts and circumstances mentioned above, the Complainant prays that this Hon’ble Commission may be pleased to:\n(a) Direct the Opposite Party to immediately refund the principal amount of ₹12,000/- (Rupees Twelve Thousand Only) along with appropriate interest;\n(b) Award compensation of ₹[COMPENSATION AMOUNT FOR MENTAL AGONY] towards mental agony, harassment, and deficiency in service caused by the Opposite Party;\n(c) Award litigation costs of ₹[LITIGATION COSTS] in favor of the Complainant; and\n(d) Pass any other order(s) as this Hon’ble Commission may deem fit in the interest of justice.\n\nLIST OF DOCUMENTS ATTACHED:\n1. Copy of Order ID / Purchase Invoice ([ORDER ID])\n2. Copy of Return Pickup Slip\n3. Copies of Customer Care Emails\n\nVERIFICATION:\nI, [YOUR FULL NAME], the Complainant above named, do hereby verify that the contents of paragraphs 1 to 8 are true to my personal knowledge and belief, and that no part of it is false and nothing material has been concealed therefrom.\n\nVerified at [CITY/DISTRICT] on this [DAY] day of [MONTH], 20[YY].\n\n\n________________________\n[YOUR FULL NAME]\nComplainant",
+    "placeholders": [
+      "[DISTRICT NAME]",
+      "[YOUR FULL NAME]",
+      "[YOUR FULL ADDRESS]",
+      "[ONLINE SHOPPING WEBSITE COMPANY NAME]",
+      "[COMPANY'S REGISTERED OFFICE ADDRESS OR CUSTOMER CARE ADDRESS]",
+      "[DATE OF PURCHASE]",
+      "[ORDER ID]",
+      "[DATE OF RETURN PICKUP]",
+      "[RETURN PICKUP SLIP NUMBER / DETAILS]",
+      "[DATE OF REFUND DELAY / EXPIRY OF PROMISED REFUND DATE]",
+      "[COMPENSATION AMOUNT FOR MENTAL AGONY]",
+      "[LITIGATION COSTS]",
+      "[CITY/DISTRICT]",
+      "[DAY]",
+      "[MONTH]"
+    ],
+    "howToSend": "1. Register/Log in on the official e-Jagriti portal (e-filing portal for Consumer Commissions). 2. Fill out the complaint details using this drafted text and upload your digital copies (Order ID, return pickup slip, and emails). 3. Pay any applicable online fee (nil for small claims up to ₹5 lakh) and submit. 4. Keep the e-filing acknowledgement receipt and copies of all uploaded documents safely as proof.",
+    "sources": [
+      "cpa-consumer",
+      "cpa-limitation",
+      "cpa-where",
+      "cpa-limits",
+      "cpa-efile",
+      "ecom-rules"
+    ],
+    "guardRemoved": [
+      {
+        "ref": "SECTION 35 OF THE CONSUMER PROTECTION ACT, 2019",
+        "why": "section not in knowledge base for CONSUMER PROTECTION ACT, 2019"
+      },
+      {
+        "ref": "Section 2(7) of the Consumer Protection Act, 2019",
+        "why": "section not in knowledge base for Consumer Protection Act, 2019"
+      }
+    ]
+  },
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "consumer",
+      "want": "consumer"
+    },
+    {
+      "id": "needs_lawyer",
+      "ok": true,
+      "got": false,
+      "want": false
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "hi,hi",
+      "want": "hi"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "devanagari,devanagari",
+      "want": "devanagari"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 2
+    },
+    {
+      "id": "draft_uses_placeholders_not_invented_facts",
+      "ok": true,
+      "got": 15
+    }
+  ],
+  "caseFile": {
+    "summary": "Online purchased phone worth 12,000 delivered defective, returned but refund not received after 40 days",
+    "person": "Customer",
+    "other_side": "Online shopping website",
+    "amount": "12,000",
+    "key_dates": [],
+    "evidence_have": [
+      "order ID",
+      "return pickup slip",
+      "customer care emails"
+    ],
+    "evidence_missing": [
+      "grievance officer formal communication"
+    ],
+    "goal": "Get refund for defective phone",
+    "deadline_risks": []
+  }
+}

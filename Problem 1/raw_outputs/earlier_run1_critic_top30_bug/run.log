@@ -1,0 +1,229 @@
+Reading 50 files · mode AI (gemini/gemini-3.5-flash-lite + strong gemini-3.8-flash) · output C:\Users\braje\OneDrive\Desktop\As\kuku\outputs\p1\ai
+
+  parsed: 50 episodes, 3727 beats
+  judged 1/50 episodes     judged 2/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 3/50 episodes     judged 4/50 episodes     judged 5/50 episodes     judged 6/50 episodes     judged 7/50 episodes     judged 8/50 episodes     judged 9/50 episodes     judged 10/50 episodes     judged 11/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 12/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  judged 13/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 6s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 14/50 episodes     falling back from gemini-3.5-flash-lite
+  judged 15/50 episodes     judged 16/50 episodes     judged 17/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 18/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  judged 19/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 20/50 episodes     judged 21/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  judged 22/50 episodes     judged 23/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 6s
+  falling back from gemini-3.5-flash-lite
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 24/50 episodes     judged 25/50 episodes     judged 26/50 episodes     judged 27/50 episodes     judged 28/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 29/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 30/50 episodes     judged 31/50 episodes     judged 32/50 episodes     judged 33/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 34/50 episodes     judged 35/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 36/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 6s
+  falling back from gemini-3.5-flash-lite
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  judged 37/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 38/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  judged 39/50 episodes     judged 40/50 episodes     judged 41/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  judged 42/50 episodes     judged 43/50 episodes     judged 44/50 episodes     judged 45/50 episodes     judged 46/50 episodes     judged 47/50 episodes     judged 48/50 episodes     gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  judged 49/50 episodes     judged 50/50 episodes   
+  montage
+  gemini-3.8-flash: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.8-flash: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  gemini-3.8-flash: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 6s
+  falling back from gemini-3.8-flash
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 6s
+  falling back from gemini-3.5-flash-lite
+
+  critic
+  gemini-3.8-flash: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.8-flash: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  gemini-3.8-flash: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 6s
+  falling back from gemini-3.8-flash
+  gemini-3.8-flash: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.8-flash: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  gemini-3.8-flash: fetch failed — retry in 6s
+  gemini-3.8-flash: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 12s
+  falling back from gemini-3.8-flash
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.8-flash: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.8-flash: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  gemini-3.8-flash: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 6s
+  falling back from gemini-3.8-flash
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 6s
+  falling back from gemini-3.5-flash-lite
+  gemini-3.1-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+
+Done in 909.2s: 113 promos (107 pass all checks), errors 0
+LLM: 56 calls, 163386 in / 31232 out tokens
+Posting order: P011, P012, P013, P014, P015, P017, P018, P019, P032, P033

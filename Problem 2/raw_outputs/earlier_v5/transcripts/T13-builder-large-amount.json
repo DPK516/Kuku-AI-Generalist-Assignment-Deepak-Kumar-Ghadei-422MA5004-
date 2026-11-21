@@ -1,0 +1,88 @@
+{
+  "id": "T13-builder-large-amount",
+  "why": "Large amount + law outside the KB (RERA): must admit the gap and recommend a lawyer",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v5",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "A builder in Noida took Rs 35 lakh from me for a flat in 2021 and still has not given possession. What are my rights?",
+      "reply": "I am Haq, a legal first-aid assistant, but I am not a lawyer. Because the amount involved here is ₹35 lakh, which is large, and involves property, you will need a lawyer to handle this properly [large amount rule]. \n\nFor a builder taking money and failing to give possession, you generally have rights under consumer protection rules. Usually, the path involves a written demand, followed by the Consumer Commission or a civil court. However, since this involves a large amount and a property dispute, please consult a qualified lawyer or use free legal aid if eligible (call NALSA at 15100). \n\nTo help me guide you better, what documents or receipts do you have, and has the builder given any written promises?",
+      "language": "en",
+      "topic": "consumer",
+      "stage": "intake",
+      "needsLawyer": true,
+      "lawyerReason": "large amount (₹10 lakh+)",
+      "lawyerLater": "",
+      "sources": [
+        "cpa-consumer",
+        "legal-aid"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": "lawyer",
+        "reasons": [
+          "large amount (₹10 lakh+)"
+        ]
+      },
+      "nextActions": [
+        "What proof or receipts do I need?",
+        "Can I approach the Consumer Commission?",
+        "How to contact legal aid"
+      ]
+    }
+  ],
+  "draft": null,
+  "practice": null,
+  "checks": [
+    {
+      "id": "needs_lawyer",
+      "ok": true,
+      "got": true,
+      "want": true
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "en",
+      "want": "en"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin",
+      "want": "latin"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    }
+  ],
+  "caseFile": {
+    "summary": "Builder in Noida took ₹35 lakh in 2021 for a flat and has not given possession yet.",
+    "person": "Homebuyer",
+    "other_side": "Builder in Noida",
+    "amount": "₹35,00,000",
+    "key_dates": [
+      {
+        "date": "2021",
+        "event": "Paid ₹35 lakh to the builder for a flat"
+      }
+    ],
+    "evidence_have": [],
+    "evidence_missing": [
+      "Payment receipts",
+      "Allotment letter or builder-buyer agreement"
+    ],
+    "goal": "Get possession of the flat or refund",
+    "deadline_risks": []
+  }
+}

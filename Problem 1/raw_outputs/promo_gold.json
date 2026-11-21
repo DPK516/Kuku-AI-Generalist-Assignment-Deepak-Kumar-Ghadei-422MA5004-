@@ -1,0 +1,17 @@
+{
+  "about": "Must-have promo moments picked by reading the scripts (one editor's judgement). A promo 'finds' a moment if a segment covers >= 50% of the moment's window. Hook/cliff seconds are episode time.",
+  "moments": [
+    { "id": "E1-A", "episode": 1, "start": 33.8, "end": 78.5, "what": "Juliana reaches the altar: 'Why are you holding her hand?' / 'Because he is marrying me.' ... 'never going to marry you.'" },
+    { "id": "E1-B", "episode": 1, "start": 90.9, "end": 137.0, "what": "Family rejects her: 'You have embarrassed this family' ... 'the true jewel of the county' (episode-end sting)" },
+    { "id": "E3-A", "episode": 3, "start": 58.3, "end": 98.0, "what": "'Guards! Remove her!' - she is dragged - the bearded stranger drops a guard: 'Then don't touch her again.'" },
+    { "id": "E3-B", "episode": 3, "start": 119.8, "end": 140.5, "what": "The stranger kneels with a ring: 'Lady Juliana... accept my hand.' (episode-end cliff)" },
+    { "id": "E5-A", "episode": 5, "start": 42.5, "end": 101.0, "what": "Stepmother flings her late mother's ledger into the mud; husband: 'Choose your next words carefully.'" },
+    { "id": "E12-A", "episode": 12, "start": 26.8, "end": 84.7, "what": "'You planted it!' - Clarissa's ultimatum: crawl into frozen thorns barehanded or 'your husband hangs from the gallows'" },
+    { "id": "E24-A", "episode": 24, "start": 6.8, "end": 63.0, "what": "'Then let her suffer.' - riding-crop strike - 'Perhaps when your hands are black enough...'" },
+    { "id": "E27-A", "episode": 27, "start": 26.6, "end": 52.2, "what": "Duchess: 'My lost son wore that exact ring!' 'What is your husband's name?' - doors burst open" },
+    { "id": "E27-B", "episode": 27, "start": 108.3, "end": 145.0, "what": "'It is an antidote.' 'To what?' 'Poison.' - framed: 'She admits...' - 'Take her.'" },
+    { "id": "E41-A", "episode": 41, "start": 41.0, "end": 89.0, "what": "Chained Juliana paraded at the villains' wedding - the cathedral doors explode" },
+    { "id": "E45-A", "episode": 45, "start": 12.5, "end": 49.0, "what": "Identity reveal: 'It's you.' 'You're the Duke?' 'Alexander Ashburton. The rightful Duke.'" },
+    { "id": "E45-B", "episode": 45, "start": 71.5, "end": 120.0, "what": "'...my lawful wife and the Duchess' - High Priest bursts in: 'You are not his lawful wife.'" }
+  ]
+}

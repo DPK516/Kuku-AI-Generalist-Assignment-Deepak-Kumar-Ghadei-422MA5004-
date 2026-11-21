@@ -1,0 +1,97 @@
+{
+  "id": "T06-cheque-en",
+  "why": "Strict statutory deadlines must be stated correctly (30 days / 15 days / 1 month)",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v6",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "My friend gave me a cheque for Rs 50,000 to repay a loan. It bounced on 2 November. The bank's return memo says 'funds insufficient'. What should I do?",
+      "reply": "Hello! I'm Haq, a legal first-aid assistant. I am not a lawyer.\n\nBecause this is a cheque bounce case, strict deadlines apply! Here is the deadline chain you must follow:\n1. Send a written demand notice to your friend within 30 days of receiving the bank's return memo (by 2 December).\n2. Your friend gets 15 days from receiving that notice to pay the money.\n3. If they still don't pay, you can file a criminal complaint within 1 month after those 15 days.\n\nDo you have the bank's return memo and a copy of the bounced cheque? And do you have any written proof of the loan (like a message, agreement, or receipt)?",
+      "language": "en",
+      "topic": "cheque",
+      "stage": "intake",
+      "needsLawyer": false,
+      "lawyerReason": "",
+      "lawyerLater": "",
+      "sources": [
+        "cheque-138"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": null,
+        "reasons": []
+      },
+      "nextActions": [
+        "Draft demand notice",
+        "What proof do I need?",
+        "How to send the notice?"
+      ]
+    }
+  ],
+  "draft": null,
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "cheque",
+      "want": "cheque"
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "en",
+      "want": "en"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin",
+      "want": "latin"
+    },
+    {
+      "id": "mentions_30",
+      "ok": true,
+      "want": "30"
+    },
+    {
+      "id": "mentions_15",
+      "ok": true,
+      "want": "15"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    }
+  ],
+  "caseFile": {
+    "summary": "Friend's cheque of Rs 50,000 for loan repayment bounced due to insufficient funds.",
+    "person": "Lender",
+    "other_side": "Friend",
+    "amount": "Rs 50,000",
+    "key_dates": [
+      {
+        "date": "2026-11-02",
+        "event": "Cheque bounced with return memo 'funds insufficient'"
+      }
+    ],
+    "evidence_have": [
+      "Bounced cheque",
+      "Bank's return memo"
+    ],
+    "evidence_missing": [],
+    "goal": "Recover the loan amount",
+    "deadline_risks": [
+      "Must send written demand notice within 30 days of return memo (by 2 December)"
+    ]
+  }
+}

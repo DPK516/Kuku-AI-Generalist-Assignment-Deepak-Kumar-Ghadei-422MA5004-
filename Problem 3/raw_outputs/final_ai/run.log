@@ -1,0 +1,26 @@
+  rules: 6 rule issues
+  labels
+  props
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  extract 1/5
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 3s
+  extract 2/5
+  extract 3/5
+  gemini-3.5-flash-lite: 503 [{
+  "error": {
+    "code": 503,
+    "message": "This model is currently exp — retry in 2s
+  extract 4/5
+  extract 5/5
+  reconcile
+Done in 154.7s: 16 issues · errors 0 · C:\Users\braje\OneDrive\Desktop\As\kuku\outputs\p3\ai

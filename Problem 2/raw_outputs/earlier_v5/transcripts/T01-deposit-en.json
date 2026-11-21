@@ -1,0 +1,146 @@
+{
+  "id": "T01-deposit-en",
+  "why": "Core in-scope case, English, ends with a drafted legal notice",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v5",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "I moved out of my rented flat in Pune 2 months ago. The landlord is not returning my Rs 45,000 security deposit. He says he will deduct painting charges but won't show any bill.",
+      "reply": "Hello! I'm Haq, a legal first-aid assistant for everyday money problems. I am not a lawyer.\n\nSince this is a dispute over a security deposit from a rented flat, we can handle this together without a lawyer right now! A landlord must return your deposit minus reasonable, documented deductions. Withholding it without bills is unfair.\n\nTo help you get your money back step by step, please tell me:\n1. Do you have a written rent agreement?\n2. What proofs do you have (WhatsApp chats, move-out photos, bank transfer receipts of the deposit)?\n\n⚖️ Because this involves property / inheritance matter, please speak to a real lawyer. Free legal aid: call 15100 (NALSA) or visit your District Legal Services Authority.",
+      "language": "en",
+      "topic": "deposit",
+      "stage": "intake",
+      "needsLawyer": true,
+      "lawyerReason": "property / inheritance matter",
+      "lawyerLater": "",
+      "sources": [
+        "deposit-basics"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": "lawyer",
+        "reasons": [
+          "property / inheritance matter"
+        ]
+      },
+      "nextActions": [
+        "What proof do I need?",
+        "How to write a demand message"
+      ]
+    },
+    {
+      "user": "We had a registered 11-month rent agreement. I paid the deposit by bank transfer and I have photos and a video of the flat on the day I left. Now he ignores my calls.",
+      "reply": "That is very helpful! Having a registered rent agreement, bank transfer proof, and move-out photos and video puts you in a strong position. A security deposit is your money, and holding it back without valid bills is a breach of your agreement. \n\nSince you asked about your options, here is how you can proceed step by step:\n1. Written demand: Send a formal written demand letter to the landlord asking for the full refund within a set time.\n2. Mediation / Legal Notice: Send a legal notice or try mediation.\n3. Civil claim: File a civil suit for money recovery within 3 years from when it became due.\n\nWould you like me to help you draft a written demand letter to send to your landlord now?",
+      "language": "en",
+      "topic": "deposit",
+      "stage": "options",
+      "needsLawyer": true,
+      "lawyerReason": "property / inheritance matter",
+      "lawyerLater": "",
+      "sources": [
+        "deposit-basics",
+        "limitation-money",
+        "deposit-routes"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": "lawyer",
+        "reasons": [
+          "property / inheritance matter"
+        ]
+      },
+      "nextActions": [
+        "Draft demand letter",
+        "What should the demand letter say?",
+        "Practice talking to landlord"
+      ]
+    }
+  ],
+  "draft": {
+    "kind": "legal_notice",
+    "title": "LEGAL NOTICE / DEMAND FOR REFUND OF SECURITY DEPOSIT",
+    "document": "To,\n[LANDLORD'S FULL NAME]\n[LANDLORD'S FULL ADDRESS]\n\nDate: [DATE OF NOTICE]\n\nSubject: Legal Notice for immediate refund of security deposit of Rs 45,000 withheld unlawfully.\n\nSir/Madam,\n\nI, [YOUR FULL NAME], residing at [YOUR CURRENT ADDRESS], state as follows under instructions:\n\n1. That we entered into a registered 11-month rent agreement dated [DATE OF RENT AGREEMENT] in respect of the residential premises situated at [RENTED FLAT ADDRESS IN PUNE].\n\n2. That at the time of commencement of the tenancy, I paid a security deposit of Rs 45,000 via bank transfer to your account, receipt of which is duly documented by bank transfer records.\n\n3. That I peacefully vacated and handed over the vacant possession of the said flat to you 2 months ago, on [DATE OF VACATING]. On the said date, I also recorded move-out photos and a video of the flat, which clearly establish that the premises were returned in good condition, subject only to normal wear and tear.\n\n4. That despite my peacefully vacating the flat, you have unlawfully withheld my entire security deposit of Rs 45,000 under the pretext of painting charges, without providing any valid bills, estimates, or justification for the same.\n\n5. As per the Rent agreement + Indian Contract Act, 1872, a security deposit is my money held against unpaid rent or damage beyond normal wear and tear, and must be returned upon vacating minus documented, reasonable deductions. Withholding the same without showing bills is a direct breach of our agreement.\n\nI hereby demand that you refund the full security deposit of Rs 45,000 within 15 days of receiving this notice, failing which I shall be constrained to initiate further legal action, including filing a civil suit for recovery of money before the competent court.\n\nYours faithfully,\n\n[YOUR SIGNATURE]\n[YOUR FULL NAME]\n[YOUR PHONE NUMBER]",
+    "placeholders": [
+      "[LANDLORD'S FULL NAME]",
+      "[LANDLORD'S FULL ADDRESS]",
+      "[DATE OF NOTICE]",
+      "[YOUR FULL NAME]",
+      "[YOUR CURRENT ADDRESS]",
+      "[DATE OF RENT AGREEMENT]",
+      "[RENTED FLAT ADDRESS IN PUNE]",
+      "[DATE OF VACATING]",
+      "[YOUR SIGNATURE]",
+      "[YOUR PHONE NUMBER]"
+    ],
+    "howToSend": "1. Send this notice via Registered Post AD or Speed Post to the landlord's address, and keep a copy for your records.\n2. You may also send a copy via WhatsApp or email if available.\n3. Keep the postal tracking receipt and delivery proof safely with your rent agreement, bank transfer receipt, and move-out photos and video.",
+    "sources": [
+      "deposit-basics",
+      "deposit-routes"
+    ],
+    "guardRemoved": []
+  },
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "deposit",
+      "want": "deposit"
+    },
+    {
+      "id": "needs_lawyer",
+      "ok": false,
+      "got": true,
+      "want": false
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "en,en",
+      "want": "en"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin,latin",
+      "want": "latin"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    },
+    {
+      "id": "draft_uses_placeholders_not_invented_facts",
+      "ok": true,
+      "got": 10
+    }
+  ],
+  "caseFile": {
+    "summary": "Tenant moved out of rented flat in Pune 2 months ago; landlord refuses to return Rs 45,000 security deposit, claiming painting charges without showing bills.",
+    "person": "Tenant",
+    "other_side": "Landlord",
+    "amount": "Rs 45,000",
+    "key_dates": [],
+    "evidence_have": [
+      "Registered 11-month rent agreement",
+      "Bank transfer receipt for deposit",
+      "Move-out photos and video"
+    ],
+    "evidence_missing": [
+      "WhatsApp chats"
+    ],
+    "goal": "Recover security deposit of Rs 45,000",
+    "deadline_risks": [],
+    "data": []
+  }
+}

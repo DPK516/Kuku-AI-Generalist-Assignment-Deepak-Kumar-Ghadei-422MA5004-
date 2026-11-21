@@ -1,0 +1,148 @@
+{
+  "id": "T01-deposit-en",
+  "why": "Core in-scope case, English, ends with a drafted legal notice",
+  "model": "gemini-3.5-flash-lite",
+  "promptVersion": "haq-v4",
+  "kbVersion": "2026-11-20",
+  "turns": [
+    {
+      "user": "I moved out of my rented flat in Pune 2 months ago. The landlord is not returning my Rs 45,000 security deposit. He says he will deduct painting charges but won't show any bill.",
+      "reply": "I am Haq, a legal first-aid assistant, but I am not a lawyer. A security-deposit dispute with a landlord is an everyday money problem and exactly what I can help you with! \n\nUnless your rent agreement says otherwise, your landlord must return your deposit after reasonable, documented deductions. Withholding it without bills is a breach of the agreement. However, because this involves rented property, please note that if it eventually goes to a formal civil suit, you would want a lawyer.\n\nTo help you take the first steps: Do you have a written rent agreement and proof of paying the deposit and vacating? When exactly did you move out?",
+      "language": "en",
+      "topic": "deposit",
+      "stage": "intake",
+      "needsLawyer": true,
+      "lawyerReason": "While you can send a demand letter yourself, a lawyer will be needed if this proceeds to a civil court suit for money recovery.",
+      "sources": [
+        "deposit-basics"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": "lawyer",
+        "reasons": [
+          "property / inheritance matter"
+        ]
+      },
+      "nextActions": [
+        "What proof do I have?",
+        "How to send a demand letter?"
+      ]
+    },
+    {
+      "user": "We had a registered 11-month rent agreement. I paid the deposit by bank transfer and I have photos and a video of the flat on the day I left. Now he ignores my calls.",
+      "reply": "Having a registered rent agreement, bank transfer proof, and photos/videos makes your case very strong! A security deposit is your money, and unless your agreement says otherwise, it must be returned minus reasonable, documented deductions. Withholding it without bills is not allowed.\n\nSince it has been 2 months, you can act now (civil claims generally have a 3-year limit). Here are your options:\n1. Written demand: Send a formal written demand letter to the landlord asking for the full amount within a set time.\n2. Legal notice: Send a formal notice (this often gets them to pay).\n3. Civil claim: File a case for recovery of money.\n\nWould you like me to help you draft a written demand letter to send to your landlord?",
+      "language": "en",
+      "topic": "deposit",
+      "stage": "options",
+      "needsLawyer": true,
+      "lawyerReason": "Property matter (rented flat dispute), which may require a lawyer if it proceeds to a formal civil suit.",
+      "sources": [
+        "deposit-basics",
+        "limitation-money",
+        "deposit-routes"
+      ],
+      "guardRemoved": [],
+      "invalidSourceIds": [],
+      "redFlags": {
+        "level": "lawyer",
+        "reasons": [
+          "property / inheritance matter"
+        ]
+      },
+      "nextActions": [
+        "Draft a written demand letter",
+        "What to put in the demand letter?",
+        "Practice talking to the landlord"
+      ]
+    }
+  ],
+  "draft": {
+    "kind": "legal_notice",
+    "title": "Legal Notice for Recovery of Security Deposit",
+    "document": "LEGAL NOTICE\n\nDate: [CURRENT DATE]\n\nTo,\n[LANDLORD'S FULL NAME]\n[LANDLORD'S FULL ADDRESS]\n\nSubject: Demand for immediate refund of security deposit amounting to Rs 45,000 withheld unlawfully.\n\nSir/Madam,\n\nI, [YOUR FULL NAME], residing at [YOUR CURRENT ADDRESS], state as follows under instructions and on my own behalf:\n\n1. That we had entered into a registered 11-month rent agreement in respect of the premises situated at [RENTED FLAT ADDRESS IN PUNE].\n\n2. That at the time of commencement of the tenancy, I paid a security deposit of Rs 45,000 via bank transfer to you, the receipt of which stands duly recorded.\n\n3. That I peacefully vacated and handed over the vacant possession of the said rented flat 2 months ago, specifically on [EXACT DATE OF MOVING OUT]. On the day of leaving, I documented the immaculate condition of the flat through photographs and videos, leaving no room for any damage beyond normal wear and tear.\n\n4. That despite my peacefully vacating the premises and multiple follow-ups, you have wrongfully withheld the entire security deposit of Rs 45,000 under the pretext of arbitrary painting charges, while failing and refusing to provide any genuine bills or estimates to justify such deductions.\n\n5. That under the Rent Agreement and the governing legal principles, a security deposit is my money and must be returned upon vacating, minus reasonable, documented deductions. Withholding the entire amount without justification or bills constitutes a clear breach of our agreement.\n\nI hereby demand that you remit the full security deposit amount of Rs 45,000 to my bank account [INSERT YOUR BANK ACCOUNT DETAILS FOR TRANSFER] within 15 days of receiving this notice.\n\nTake notice that if you fail to refund the said amount within the stipulated period of 15 days, I shall be constrained to initiate further legal action against you, including filing a civil suit for recovery of money along with applicable costs and interest, at your sole risk and cost.\n\nYours faithfully,\n\n[YOUR SIGNATURE]\n[YOUR FULL NAME]\n[YOUR CONTACT NUMBER]",
+    "placeholders": [
+      "[CURRENT DATE]",
+      "[LANDLORD'S FULL NAME]",
+      "[LANDLORD'S FULL ADDRESS]",
+      "[YOUR FULL NAME]",
+      "[YOUR CURRENT ADDRESS]",
+      "[RENTED FLAT ADDRESS IN PUNE]",
+      "[EXACT DATE OF MOVING OUT]",
+      "[INSERT YOUR BANK ACCOUNT DETAILS FOR TRANSFER]",
+      "[YOUR SIGNATURE]",
+      "[YOUR CONTACT NUMBER]"
+    ],
+    "howToSend": "1. Print two copies of this notice and sign both. 2. Send one copy to the landlord via Registered Post with Acknowledgement Due (RPAD) or speed post, and keep the original postal receipt and tracking report. You may also send a copy via WhatsApp or email for immediate record. 3. Keep the second copy and all proofs safely with your rent agreement, bank transfer proof, and photos/videos.",
+    "sources": [
+      "limitation-money",
+      "never-ignore",
+      "deposit-basics",
+      "deposit-routes"
+    ],
+    "guardRemoved": []
+  },
+  "practice": null,
+  "checks": [
+    {
+      "id": "topic",
+      "ok": true,
+      "got": "deposit",
+      "want": "deposit"
+    },
+    {
+      "id": "needs_lawyer",
+      "ok": false,
+      "got": true,
+      "want": false
+    },
+    {
+      "id": "reply_language",
+      "ok": true,
+      "got": "en,en",
+      "want": "en"
+    },
+    {
+      "id": "same_language",
+      "ok": true,
+      "got": "latin,latin",
+      "want": "latin"
+    },
+    {
+      "id": "cites_only_kb",
+      "ok": true,
+      "got": "ok"
+    },
+    {
+      "id": "guard_removals",
+      "ok": true,
+      "info": true,
+      "got": 0
+    },
+    {
+      "id": "draft_uses_placeholders_not_invented_facts",
+      "ok": true,
+      "got": 10
+    }
+  ],
+  "caseFile": {
+    "summary": "Landlord in Pune is withholding Rs 45,000 security deposit for painting charges without bills, 2 months after tenant moved out.",
+    "person": "Tenant",
+    "other_side": "Landlord",
+    "amount": "Rs 45,000",
+    "key_dates": [
+      {
+        "date": "2 months ago",
+        "event": "Moved out of the rented flat"
+      }
+    ],
+    "evidence_have": [
+      "Registered 11-month rent agreement",
+      "Bank transfer proof of deposit",
+      "Photos and video of the flat on the day of leaving"
+    ],
+    "evidence_missing": [],
+    "goal": "Recover security deposit of Rs 45,000",
+    "deadline_risks": []
+  }
+}
